@@ -11,51 +11,52 @@ function addTask() {
         return;
     }
 
-    // Create a new list item for the task
+    let taskItem = createTaskItem(task, false);
+    let taskList = document.getElementById('taskList');
+    taskList.appendChild(taskItem);
+
+    taskInput.value = "";
+    saveTasks();
+}
+
+function createTaskItem(taskText, isCompleted) {
     let taskItem = document.createElement('li');
-    taskItem.textContent = task;
+    taskItem.textContent = taskText;
 
-    // Create a delete button for each task
-    let deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "Delete";
-    deleteBtn.onclick = function() {
-        taskItem.remove();
-        saveTasks();
-    };
+    if (isCompleted) {
+        taskItem.classList.add('completed');
+    }
 
-    // Create a complete button for each task
-    let completeBtn = document.createElement('button');
-    completeBtn.textContent = "Complete";
-    completeBtn.onclick = function() {
-        taskItem.classList.toggle('completed');
-        saveTasks();
-    };
-
-    // Create an edit button for each task
-    let editBtn = document.createElement('button');
-    editBtn.textContent = "Edit";
-    editBtn.onclick = function() {
+    let editBtn = createButton('Edit', () => {
         let newTask = prompt("Edit your task:", taskItem.textContent.replace("EditDeleteComplete", "").trim());
         if (newTask !== null && newTask !== "") {
             taskItem.firstChild.textContent = newTask;
             saveTasks();
         }
-    };
+    });
 
-    // Add the buttons to the task item
+    let deleteBtn = createButton('Delete', () => {
+        taskItem.remove();
+        saveTasks();
+    });
+
+    let completeBtn = createButton('Complete', () => {
+        taskItem.classList.toggle('completed');
+        saveTasks();
+    });
+
     taskItem.appendChild(editBtn);
     taskItem.appendChild(deleteBtn);
     taskItem.appendChild(completeBtn);
 
-    // Add the task item to the task list
-    let taskList = document.getElementById('taskList');
-    taskList.appendChild(taskItem);
+    return taskItem;
+}
 
-    // Clear the input field for the next task
-    taskInput.value = "";
-
-    // Save tasks to localStorage
-    saveTasks();
+function createButton(text, onClick) {
+    let button = document.createElement('button');
+    button.textContent = text;
+    button.onclick = onClick;
+    return button;
 }
 
 function saveTasks() {
@@ -75,51 +76,10 @@ function saveTasks() {
 function loadTasks() {
     let tasks = JSON.parse(localStorage.getItem('tasks'));
     if (tasks) {
+        let taskList = document.getElementById('taskList');
         for (let i = 0; i < tasks.length; i++) {
             let task = tasks[i];
-
-            // Create a new list item for the task
-            let taskItem = document.createElement('li');
-            taskItem.textContent = task.text;
-
-            if (task.completed) {
-                taskItem.classList.add('completed');
-            }
-
-            // Create a delete button for each task
-            let deleteBtn = document.createElement('button');
-            deleteBtn.textContent = "Delete";
-            deleteBtn.onclick = function() {
-                taskItem.remove();
-                saveTasks();
-            };
-
-            // Create a complete button for each task
-            let completeBtn = document.createElement('button');
-            completeBtn.textContent = "Complete";
-            completeBtn.onclick = function() {
-                taskItem.classList.toggle('completed');
-                saveTasks();
-            };
-
-            // Create an edit button for each task
-            let editBtn = document.createElement('button');
-            editBtn.textContent = "Edit";
-            editBtn.onclick = function() {
-                let newTask = prompt("Edit your task:", taskItem.textContent.replace("EditDeleteComplete", "").trim());
-                if (newTask !== null && newTask !== "") {
-                    taskItem.firstChild.textContent = newTask;
-                    saveTasks();
-                }
-            };
-
-            // Add the buttons to the task item
-            taskItem.appendChild(editBtn);
-            taskItem.appendChild(deleteBtn);
-            taskItem.appendChild(completeBtn);
-
-            // Add the task item to the task list
-            let taskList = document.getElementById('taskList');
+            let taskItem = createTaskItem(task.text, task.completed);
             taskList.appendChild(taskItem);
         }
     }
