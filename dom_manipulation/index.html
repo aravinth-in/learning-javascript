@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #my-paragraph {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .highlight {
+            background-color: #ff6f00;   /* Deep orange */
+            border-color: #ffab40;       /* Lighter orange */
+            color: #fff;                 /* White text for contrast */
+            box-shadow: 0 0 10px #ffab40, 0 0 20px #ff6f00;
+        }
+        .hidden {
+            display: none;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #item-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 20px;
+            border-top: 1px dashed #eee;
+            padding-top: 15px;
+        }
+        #item-list li {
+            background-color: #e9ecef;
+            margin-bottom: 5px;
+            padding: 8px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DOM Manipulation Playground</h1>
+
+        <p id="my-paragraph">This is a paragraph with a unique ID.</p>
+
+        <div class="box">
+            <p>This is the first box.</p>
+            <span id="box-span">Initial span content.</span>
+        </div>
+        <div class="box">
+            <p>This is the second box.</p>
+        </div>
+
+        <input type="text" id="my-input" value="Default Text">
+        <button id="get-input-value">Get Input Value</button>
+        <button id="set-input-value">Set Input Value</button>
+        <p id="input-display"></p>
+
+        <button id="change-text-button">Change Paragraph Text</button>
+        <button id="add-class-button">Add Highlight Class</button>
+        <button id="remove-class-button">Remove Highlight Class</button>
+        <button id="toggle-class-button">Toggle Highlight Class</button>
+
+        <button id="change-style-button">Change Box Style</button>
+        <button id="reset-style-button">Reset Box Style</button>
+
+        <button id="create-element-button">Create New List Item</button>
+        <button id="remove-last-item-button">Remove Last Item</button>
+        <ul id="item-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+
+        <div id="image-container">
+            <h3>Dynamic Image</h3>
+            <img id="dynamic-image" src="https://picsum.photos/200" alt="Placeholder Image">
+            <button id="change-image-button">Change Image</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

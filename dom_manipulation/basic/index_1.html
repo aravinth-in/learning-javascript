@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to the DOM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="">
+    <style>
+        body {
+            font-size: 1.5em;
+            margin: 15px;
+        }
+
+        .dark {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="dark">
+    <h1 id="intro-text">Manipulating the DOM</h1>
+    <ul></ul>
+    <script>
+        let topics = [
+            'Intro to DOM',
+            'Getting Methods',
+            'Querying the DOM',
+            'Creating Elements',
+            'Removing Elements',
+            'Modifying the Elements'
+        ];
+
+        let h1Element = document.getElementById("intro-text");
+        let ulElement = document.querySelector("ul");
+        let olElement = document.createElement("ol");
+        // let scriptElement = document.querySelector("script");
+        
+        // Approach 1 : Adding Elements
+        // document.body.insertBefore(olElement, scriptElement);
+        // document.body.appendChild(olElement);
+
+        /*let il1 = document.createElement("li");
+        let text1 = document.createTextNode("Intro to DOM");
+
+        let il2 = document.createElement("li");
+        let text2 = document.createTextNode("Getting Methods");
+
+        il1.appendChild(text1);
+        olElement.appendChild(il1);
+
+        il2.appendChild(text2);
+        olElement.appendChild(il2);*/
+
+        // Approach 2 : Adding Elements
+        topics.forEach(function (text) {
+            let li = document.createElement("li");
+            li.innerHTML = text;
+            olElement.appendChild(li);
+        })
+
+        // Approach 1 : Removing Elements
+        // let lastLi = olElement.removeChild(olElement.lastChild);
+ 
+        // Approach 2 : Removing Elements
+        let lastLi = olElement.lastChild;
+        lastLi.remove();
+        ulElement.appendChild(lastLi);
+
+        // h1Element.insertAdjacentElement("beforebegin", olElement);
+        // h1Element.insertAdjacentElement("afterbegin", olElement);
+        // h1Element.insertAdjacentElement("beforeend", olElement);
+        h1Element.insertAdjacentElement("afterend", olElement);
+    </script>
+</body>
+</html>
