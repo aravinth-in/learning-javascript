@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events and Event Listeners Practice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #hover-box {
+            width: 150px;
+            height: 100px;
+            background-color: #e0f7fa;
+            border: 2px solid #00bcd4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        #hover-box.hovered {
+            background-color: #80deea;
+        }
+        #key-display {
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 40px;
+            margin: 20px 0;
+            background-color: #fcfcfc;
+            border-radius: 5px;
+        }
+        form {
+            background-color: #f7f9fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #28a745;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+        #form-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        #form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        #event-delegation-list {
+            list-style-type: none;
+            padding: 0;
+            border: 1px solid #b3e5fc;
+            background-color: #e1f5fe;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #event-delegation-list li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #b3e5fc;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        #event-delegation-list li:last-child {
+            border-bottom: none;
+        }
+        #event-delegation-list li:hover {
+            background-color: #add8e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding Events and Event Listeners</h1>
+
+        <h2>Click Events</h2>
+        <button id="my-button">Click Me!</button>
+        <button id="multi-listener-button">Multi-Listener Button</button>
+        <button id="remove-listener-button">Remove Listener</button>
+        <p id="click-message"></p>
+
+        <h2>Mouse Events</h2>
+        <div id="hover-box">Hover Over Me!</div>
+        <p id="mouse-coords"></p>
+
+        <h2>Keyboard Events</h2>
+        <label for="key-input">Type something:</label>
+        <input type="text" id="key-input" placeholder="Type here...">
+        <p id="key-display">Key pressed: None</p>
+
+        <h2>Form Events & `preventDefault()`</h2>
+        <form id="my-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="useremail">Email:</label>
+            <input type="email" id="useremail" name="useremail" required>
+            <button type="submit">Submit Form</button>
+            <div id="form-message"></div>
+        </form>
+
+        <h2>Event Delegation</h2>
+        <ul id="event-delegation-list">
+            <li data-item-id="1">List Item 1</li>
+            <li data-item-id="2">List Item 2</li>
+            <li data-item-id="3">List Item 3</li>
+            <li data-item-id="4">List Item 4 (Click to Remove)</li>
+        </ul>
+        <button id="add-delegated-item">Add New Delegated Item</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Flow Demo</title>
+    <style>
+        body * {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        #container {
+            background-color: lightblue;
+            border: 2px solid blue;
+        }
+        #inner-div {
+            background-color: lightgreen;
+            border: 2px solid green;
+        }
+        #my-button {
+            background-color: lightcoral;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        Container Div
+        <div id="inner-div">
+            Inner Div
+            <button id="my-button">Click Me!</button>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const innerDiv = document.getElementById('inner-div');
+        const myButton = document.getElementById('my-button');
+
+        // Helper function for logging
+        function logEvent(phase, elementId, event) {
+            console.log(`[${phase}] Element: ${elementId}, Target: ${event.target.id || 'none'}, CurrentTarget: ${event.currentTarget.id || 'none'}`);
+        }
+
+        // Add listeners for CAPTURING PHASE (third argument is true or { capture: true })
+        document.body.addEventListener('click', (e) => logEvent('CAPTURING', 'body', e), { capture: true });
+        container.addEventListener('click', (e) => logEvent('CAPTURING', 'container', e), { capture: true });
+        innerDiv.addEventListener('click', (e) => logEvent('CAPTURING', 'inner-div', e), { capture: true });
+        myButton.addEventListener('click', (e) => logEvent('CAPTURING', 'my-button', e), { capture: true }); // Target listener will also fire here during capturing
+
+        // Add listeners for BUBBLING PHASE (default, or { capture: false })
+        myButton.addEventListener('click', (e) => logEvent('BUBBLING', 'my-button', e)); // Target listener will also fire here during bubbling
+        innerDiv.addEventListener('click', (e) => logEvent('BUBBLING', 'inner-div', e));
+        container.addEventListener('click', (e) => logEvent('BUBBLING', 'container', e));
+        document.body.addEventListener('click', (e) => logEvent('BUBBLING', 'body', e));
+
+        // Let's add a listener to the Window and Document as well
+        window.addEventListener('click', (e) => logEvent('CAPTURING', 'window', e), { capture: true });
+        document.addEventListener('click', (e) => logEvent('CAPTURING', 'document', e), { capture: true });
+
+        window.addEventListener('click', (e) => logEvent('BUBBLING', 'window', e));
+        document.addEventListener('click', (e) => logEvent('BUBBLING', 'document', e));
+
+    </script>
+</body>
+</html>
