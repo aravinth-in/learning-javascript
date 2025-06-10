@@ -1,0 +1,170 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+#drawingCanvas {
+    border: 2px solid #3498db; /* Blue border to make it visible */
+    background-color: #ffffff; /* White background for drawing */
+    cursor: crosshair; /* Change cursor to indicate drawing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow controls to wrap if too narrow */
+    justify-content: center;
+}
+button {
+    padding: 10px 20px;
+    background-color: #2ecc71; /* Green for clear */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+}
+button:hover {
+    background-color: #27ae60;
+}
+button.active-tool {
+    background-color: #3498db;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    transform: translateY(1px);
+}
+button.active-tool:hover {
+    background-color: #3498db;
+}
+label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* NEW STYLES for Color Palette */
+.color-palette {
+    display: flex;
+    gap: 5px; /* Space between color swatches */
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.color-swatch {
+    width: 25px;
+    height: 25px;
+    border: 2px solid transparent; /* Default border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.color-swatch.active {
+    border-color: #3498db; /* Blue border for active color */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Blue glow */
+}
+
+/* Existing input styles (no change here, but keeping for completeness) */
+input[type="color"] {
+    /* This rule block can now be removed as the color input is gone,
+       but if you keep it, it won't affect anything as the element is removed. */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="color"]::-moz-color-swatch {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="range"] {
+    width: 100px;
+    vertical-align: middle;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    #drawingCanvas {
+        width: 80vw !important;
+        height: 50vw !important;
+        max-width: 600px;
+        max-height: 400px;
+    }
+    .controls {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    #drawingCanvas {
+        width: 98vw !important;
+        height: 60vw !important;
+        max-width: 98vw;
+        max-height: 60vw;
+        min-width: 200px;
+        min-height: 120px;
+    }
+    .controls {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+    button, input[type="range"] {
+        width: 100%;
+        font-size: 1em;
+    }
+    .color-palette {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .color-swatch {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    #drawingCanvas {
+        width: 95vw !important;
+        height: 40vw !important;
+        min-width: 120px;
+        min-height: 60px;
+    }
+    .color-swatch {
+        width: 16px;
+        height: 16px;
+    }
+}
