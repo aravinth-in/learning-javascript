@@ -11,7 +11,7 @@ class Product {
     #stock; // Private field for stock, ensures it's only modified via methods
     static #nextId = 1; // Private static field for generating unique IDs
 
-    constructor(name, price, category, initialStock) {
+    constructor(name, price, category, initialStock, imageUrl = 'https://via.placeholder.com/150') {
         if (typeof name !== 'string' || name.trim() === '') {
             throw new Error("Product name must be a non-empty string.");
         }
@@ -21,12 +21,16 @@ class Product {
         if (typeof initialStock !== 'number' || initialStock < 0) {
             throw new Error("Initial stock must be a non-negative number.");
         }
+        if (typeof imageUrl !== 'string' || imageUrl.trim() === '') {
+            throw new Error("Product image URL must be a non-empty string.");
+        }
 
         this.id = Product.#generateId(); // Use static method to assign unique ID
         this.name = name.trim();
         this.price = price;
         this.category = category;
         this.#stock = initialStock; // Initialize private stock
+        this.imageUrl = imageUrl.trim(); // Store image URL
     }
 
     // Public method to get current stock (read-only access to private field)
@@ -85,8 +89,8 @@ class Product {
 // ==========================================================
 
 class ElectronicsProduct extends Product {
-    constructor(name, price, initialStock, warrantyMonths) {
-        super(name, price, "Electronics", initialStock); // Call parent constructor
+    constructor(name, price, initialStock, warrantyMonths, imageUrl) {
+        super(name, price, "Electronics", initialStock, imageUrl); // Call parent constructor
         this.warrantyMonths = warrantyMonths;
     }
 
@@ -96,8 +100,8 @@ class ElectronicsProduct extends Product {
 }
 
 class BookProduct extends Product {
-    constructor(name, price, initialStock, author, isbn) {
-        super(name, price, "Books", initialStock); // Call parent constructor
+    constructor(name, price, initialStock, author, isbn, imageUrl) {
+        super(name, price, "Books", initialStock, imageUrl); // Call parent constructor
         this.author = author;
         this.isbn = isbn;
     }
@@ -115,7 +119,6 @@ class ShoppingCart {
     #items = []; // Private array to store cart items { product: Product, quantity: number }
     #discountApplied = null; // Stores the discount function to apply, or null if none
     #discountAmount = 0; // Stores the calculated discount amount for display
-    #discountCode = ''; // Stores the applied discount code for reference
 
     constructor() {
         this.#renderCart(); // Initial render for an empty cart
@@ -235,15 +238,9 @@ class ShoppingCart {
 
     // Public method to apply a discount
     // Demonstrates: Setting a private closure-based function
-    applyDiscount(discountFunction, couponCode = null) {
-        if(couponCode === undefined || couponCode.trim() === '') {
-            console.warn("No coupon code provided. Discount not applied.");
-            return false;
-        }
-
+    applyDiscount(discountFunction) {
         if (typeof discountFunction === 'function') {
             this.#discountApplied = discountFunction;
-            this.#discountCode = couponCode.toUpperCase().trim(); // Store the applied discount code
             this.#recalculateDiscount(); // Update discount immediately
             this.#renderCart();
             return true;
@@ -343,7 +340,6 @@ class ShoppingCart {
 
         // Update discounted total display
         if (this.#discountApplied && this.#discountAmount > 0) {
-            updateCouporenMessage(this.#discountApplied , this.#discountCode);
             discountedTotalDiv.style.display = 'flex'; // Show the discounted total row
             discountedPriceSpan.textContent = `$${this.getTotalPrice().toFixed(2)}`; // Get actual total after discount
         } else {
@@ -352,8 +348,113 @@ class ShoppingCart {
     }
 }
 
+
 // ==========================================================
-// 4. Discount Functions (Closures & Potential for Currying)
+// 4. Wishlist Class (NEW!)
+//    Demonstrates: ES6 Classes, Encapsulation (Private Fields)
+// ==========================================================
+class Wishlist {
+    #items = []; // Private array to store wishlist items (Product objects)
+
+    constructor() {
+        this.#renderWishlist(); // Initial render for an empty wishlist
+    }
+
+    // Public method to add a product to the wishlist
+    addItem(product) {
+        if (!(product instanceof Product)) {
+            console.error("Attempted to add non-Product item to wishlist.");
+            return false;
+        }
+        if (!this.#items.find(item => item.id === product.id)) {
+            this.#items.push(product);
+            console.log(`Added ${product.name} to wishlist.`);
+            this.#renderWishlist();
+            return true;
+        } else {
+            console.warn(`${product.name} is already in the wishlist.`);
+            return false;
+        }
+    }
+
+    // Public method to remove a product from the wishlist
+    removeItem(productId) {
+        const initialLength = this.#items.length;
+        this.#items = this.#items.filter(item => item.id !== productId);
+        if (this.#items.length < initialLength) {
+            console.log(`Removed product with ID ${productId} from wishlist.`);
+            this.#renderWishlist();
+            return true;
+        } else {
+            console.warn(`Product with ID ${productId} not found in wishlist.`);
+            return false;
+        }
+    }
+
+    // Public method to get a copy of wishlist items
+    getWishlistItems() {
+        return [...this.#items];
+    }
+
+    // Public method to check if a product is in the wishlist
+    isProductInWishlist(productId) {
+        return this.#items.some(item => item.id === productId);
+    }
+
+    // Private method to render the wishlist UI
+    #renderWishlist() {
+        const wishlistItemsElement = document.getElementById('wishlistItems');
+        wishlistItemsElement.innerHTML = ''; // Clear current wishlist display
+
+        if (this.#items.length === 0) {
+            wishlistItemsElement.innerHTML = '<li>Your wishlist is empty.</li>';
+        } else {
+            this.#items.forEach(product => {
+                const li = document.createElement('li');
+                li.className = 'wishlist-item';
+                li.innerHTML = `
+                    <div class="wishlist-item-info">
+                        <span>${product.name}</span>
+                        <small>($${product.price.toFixed(2)})</small>
+                    </div>
+                    <div>
+                        <button class="add-to-cart-from-wishlist" data-product-id="${product.id}"
+                                ${!product.isAvailable() ? 'disabled' : ''}>
+                            ${product.isAvailable() ? 'Add to Cart' : 'Out of Stock'}
+                        </button>
+                        <button class="remove-from-wishlist" data-product-id="${product.id}">Remove</button>
+                    </div>
+                `;
+
+                // Event listener to add from wishlist to cart
+                const addToCartBtn = li.querySelector('.add-to-cart-from-wishlist');
+                addToCartBtn.addEventListener('click', (event) => {
+                    const productId = event.target.dataset.productId;
+                    const productToAdd = products.find(p => p.id === productId); // Find from main products list
+                    if (productToAdd && productToAdd.isAvailable()) {
+                        myCart.addItem(productToAdd, 1); // Add to cart
+                        this.removeItem(productId); // Remove from wishlist after adding to cart
+                        renderProducts(); // Update product grid (stock/button state)
+                    } else {
+                        alert(`${productToAdd.name} is out of stock!`);
+                    }
+                });
+
+                // Event listener to remove from wishlist
+                const removeBtn = li.querySelector('.remove-from-wishlist');
+                removeBtn.addEventListener('click', (event) => {
+                    myWishlist.removeItem(event.target.dataset.productId);
+                });
+
+                wishlistItemsElement.appendChild(li);
+            });
+        }
+    }
+}
+
+
+// ==========================================================
+// 5. Discount Functions (Closures & Potential for Currying)
 // ==========================================================
 
 // This is a Higher-Order Function that RETURNS another function (a Closure).
@@ -403,27 +504,29 @@ const discountCodes = {
 };
 
 // ==========================================================
-// 5. Initial Product Data & Application Setup
+// 6. Initial Product Data & Application Setup
 // ==========================================================
 
 // Create instances of our Product classes
 const products = [
-    new Product("Laptop Pro", 1200.00, "Computers", 10),
-    new ElectronicsProduct("Wireless Mouse", 25.50, 50, 12),
-    new Product("Mechanical Keyboard", 75.00, "Computers", 20),
-    new BookProduct("The JavaScript Way", 35.00, 15, "Marijn Haverbeke", "978-0134682334"),
-    new Product("Smart Speaker", 99.99, "Audio", 30),
-    new BookProduct("Clean Code", 45.00, 8, "Robert C. Martin", "978-0132350884"),
-    new ElectronicsProduct("4K Monitor", 300.00, 5, 24),
-    new Product("Webcam HD", 49.99, "Accessories", 25),
-    new BookProduct("Designing Data-Intensive Applications", 55.00, 12, "Martin Kleppmann", "978-1449373320")
+    new Product("Laptop Pro", 1200.00, "Computers", 10, "img/laptop.jpg"),
+    new ElectronicsProduct("Wireless Mouse", 25.50, 50, 12, "img/wireless_mouse.webp"),
+    new Product("Mechanical Keyboard", 75.00, "Computers", 20, "img/mechanical_keyboard.webp"),
+    new BookProduct("The JavaScript Way", 35.00, 15, "Marijn Haverbeke", "978-0134682334", "img/javascript.jpg"),
+    new Product("Smart Speaker", 99.99, "Audio", 30, "img/smart_speaker.webp"),
+    new BookProduct("Clean Code", 45.00, 8, "Robert C. Martin", "978-0132350884", "img/clean_code.jpeg"),
+    new ElectronicsProduct("4K Monitor", 300.00, 5, 24, "img/monitor.jpg"),
+    new Product("Webcam HD", 49.99, "Accessories", 25, "img/webcam.webp"),
+    new BookProduct("Designing Data-Intensive Applications", 55.00, 12, "Martin Kleppmann", "978-1449373320", "img/design_data_book.webp")
 ];
 
-// Create a single instance of our ShoppingCart
-const myCart = new ShoppingCart();
+
+
+const myCart = new ShoppingCart(); // Create a single instance of our ShoppingCart
+const myWishlist = new Wishlist(); // Wishlist instance
 
 // ==========================================================
-// 6. UI Rendering & Event Handling (Application Logic)
+// 7. UI Rendering & Event Handling (Application Logic)
 // ==========================================================
 
 const productGrid = document.getElementById('productGrid');
@@ -446,16 +549,23 @@ function renderProducts(filteredProducts = products) {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
         productCard.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}" title="${product.name}">
             <h3>${product.name}</h3>
             <p>Category: ${product.category}</p>
             ${product instanceof BookProduct ? `<p>Author: ${product.author}</p>` : ''}
             ${product instanceof ElectronicsProduct ? `<p>Warranty: ${product.warrantyMonths} months</p>` : ''}
             <p class="price">$${product.price.toFixed(2)}</p>
             <p>Stock: ${product.getStock()}</p>
-            <button class="add-to-cart" data-product-id="${product.id}" 
-                    ${!product.isAvailable() ? 'disabled' : ''}>
-                ${product.isAvailable() ? 'Add to Cart' : 'Out of Stock'}
-            </button>
+            <div class="actions">
+                <button class="add-to-cart" data-product-id="${product.id}"
+                        ${!product.isAvailable() ? 'disabled' : ''}>
+                    ${product.isAvailable() ? 'Add to Cart' : 'Out of Stock'}
+                </button>
+                <button class="add-to-wishlist" data-product-id="${product.id}"
+                        ${myWishlist.isProductInWishlist(product.id) ? 'disabled class="add-to-wishlist added"' : ''}>
+                    ${myWishlist.isProductInWishlist(product.id) ? 'Added to Wishlist' : 'Add to Wishlist'}
+                </button>
+            </div>
         `;
 
         // Add event listener to the "Add to Cart" button
@@ -475,9 +585,33 @@ function renderProducts(filteredProducts = products) {
                     if (stockDisplay && stockDisplay.textContent.startsWith('Stock:')) {
                          stockDisplay.textContent = `Stock: ${productToAdd.getStock()}`;
                     }
+                    // If product was in wishlist, and is now added to cart, refresh wishlist state
+                    if (myWishlist.isProductInWishlist(productId)) {
+                        myWishlist.removeItem(productId); // Remove from wishlist if added to cart from product grid
+                    }
                 }
             });
         }
+
+        const addWishlistButton = productCard.querySelector('.add-to-wishlist');
+        if (addWishlistButton) {
+            addWishlistButton.addEventListener('click', (event) => {
+                const productId = event.target.dataset.productId;
+                const productToAdd = products.find(p => p.id === productId);
+                if (productToAdd) {
+                    if (myWishlist.isProductInWishlist(productId)) {
+                        myWishlist.removeItem(productId); // If already in, remove it
+                        event.target.textContent = 'Add to Wishlist';
+                        event.target.classList.remove('added');
+                    } else {
+                        myWishlist.addItem(productToAdd); // Add to wishlist
+                        event.target.textContent = 'Added to Wishlist';
+                        event.target.classList.add('added');
+                    }
+                }
+            });
+        }
+
         productGrid.appendChild(productCard);
     });
 }
