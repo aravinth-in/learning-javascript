@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-title">News Feed</h1>
+        <div class="theme-switcher">
+            <span id="lightMode" class="theme-icon active-theme">&#9728;</span>
+            <span id="darkMode" class="theme-icon">&#9790;</span>
+        </div>
+    </header>
+
+    <div class="breaking-news-ticker" id="breakingNewsTicker">
+        <div class="ticker-block">
+            <span class="ticker-label">BREAKING NEWS:</span>
+            <span class="ticker-content">
+                <span class="ticker-item">Loading breaking news...</span>
+            </span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="controls-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search news (e.g., crypto, AI)...">
+                <button id="searchButton">Search</button>
+            </div>
+
+            <div class="categories">
+                <button class="category-btn active" data-category="general">General</button>
+                <button class="category-btn" data-category="technology">Technology</button>
+                <button class="category-btn" data-category="business">Business</button>
+                <button class="category-btn" data-category="sports">Sports</button>
+                <button class="category-btn" data-category="health">Health</button>
+                <button class="category-btn" data-category="science">Science</button>
+                <button class="category-btn" data-category="entertainment">Entertainment</button>
+            </div>
+        </div>
+
+        <div class="news-container" id="newsContainer">
+            <p id="loadingMessage" class="message">Loading news...</p>
+            <p id="errorMessage" class="message error"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
