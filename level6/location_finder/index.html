@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Am I?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+<body>
+    <div class="container">
+        <h1>Where Am I?</h1>
+        <p>Click the button below to find your current geographical coordinates.</p>
+
+        <button id="getLocationBtn">Get My Location</button>
+
+        <div id="locationInfo" class="info-box">
+            <p><strong>Latitude:</strong> <span id="latitude">N/A</span></p>
+            <p><strong>Longitude:</strong> <span id="longitude">N/A</span></p>
+            <p><strong>Place:</strong> <span id="placeName">N/A</span></p>
+        </div>
+
+        <div id="lastKnownLocation" class="info-box last-known">
+            <h3>Last Known Location (from Cookie)</h3>
+            <p><strong>Latitude:</strong> <span id="lastLat">N/A</span></p>
+            <p><strong>Longitude:</strong> <span id="lastLon">N/A</span></p>
+            <p><strong>Place:</strong> <span id="lastPlace">N/A</span></p>
+        </div>
+        <div id="map" style="height: 300px; width: 100%; border-radius: 8px; margin-top: 20px;"></div>
+
+        <div id="message" class="message-box">
+            </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
