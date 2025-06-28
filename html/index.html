@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEd Hub - Your Gateway to Learning Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://www.google.com/favicon.ico">
+
+    <script>
+        function calculateSum() {
+            const num1 = parseInt(document.getElementById('num1').value) || 0;
+            const num2 = parseInt(document.getElementById('num2').value) || 0;
+            document.getElementById('sum-result').value = num1 + num2;
+        }
+
+        function showCustomAlert() {
+            alert('Custom button clicked! This action is controlled by JavaScript.');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content fully loaded and parsed!');
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>TechEd Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="external-resources.html" target="_blank" rel="noopener noreferrer">External Resources</a></li>
+                <li><a href="mailto:info@techedhub.com">Email Us</a></li>
+                <li><a href="tel:+919876543210">Call Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About TechEd Hub</h2>
+            <p>Welcome to TechEd Hub, your premier destination for <strong>cutting-edge</strong> technology education. We provide high-quality courses designed to equip you with the skills needed in today's <em>dynamic</em> tech landscape.</p>
+            <p>Our mission is to make learning accessible and engaging for everyone, from beginners to advanced professionals.</p>
+
+            <figure>
+                <picture>
+                    <source srcset="https://via.placeholder.com/600x300.webp?text=Learning+Group" type="image/webp">
+                    <img src="https://via.placeholder.com/600x300.jpg?text=Learning+Group"
+                         alt="A group of students learning together on computers, representing collaborative education."
+                         width="600" height="300" loading="lazy">
+                </picture>
+                <figcaption>Our students collaborating in a dynamic learning environment.</figcaption>
+            </figure>
+            <hr> </section>
+
+        <section id="courses">
+            <h2>Our Courses</h2>
+            <h3>Frontend Development Track:</h3>
+            <ol type="1" start="1">
+                <li>HTML Fundamentals
+                    <ul>
+                        <li>Document Structure</li>
+                        <li>Text Formatting & Lists</li>
+                        <li><mark>Hyperlinks & Navigation</mark></li> 
+                        <li>Images & Multimedia</li>
+                        <li>Tables</li>
+                        <li>Forms</li>
+                    </ul>
+                </li>
+                <li>CSS Styling
+                    <ol type="a">
+                        <li>Selectors & Properties</li>
+                        <li>Layout (Flexbox & Grid)</li>
+                        <li>Responsive Design</li>
+                    </ol>
+                </li>
+                <li>JavaScript Programming</li>
+            </ol>
+
+            <h3>Backend Development Track:</h3>
+            <ul>
+                <li>Python for Web</li>
+                <li>Node.js Essentials</li>
+                <li>Database Management</li>
+            </ul>
+            <hr>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <table>
+                <caption>TechEd Hub Live Sessions Schedule</caption>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Event</th>
+                        <th colspan="2">Date & Time</th>
+                        <th rowspan="2">Speaker</th>
+                        <th rowspan="2">Format</th>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time (IST)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Web Security Workshop</td>
+                        <td><time datetime="2025-07-10">Jul 10</time></td> 
+                        <td>10:00 AM</td>
+                        <td>Dr. Alex Lee</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>AI in Healthcare</td>
+                        <td><time datetime="2025-07-15">Jul 15</time></td>
+                        <td>02:00 PM</td>
+                        <td>Dr. Sarah Chen</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>Career Fair <sup>1</sup></td> 
+                        <td><time datetime="2025-07-20">Jul 20</time></td>
+                        <td>09:00 AM - 05:00 PM</td>
+                        <td>Various Recruiters</td>
+                        <td>Hybrid</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5"><sup>1</sup> Registration required for Career Fair.</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <br>
+            <p><small>All times are Indian Standard Time (IST).</small></p> <hr>
+        </section>
+
+        <section id="multimedia-examples">
+            <h2>Multimedia Showcase</h2>
+            <h3>Student Success Story (Video)</h3>
+            <video controls poster="https://via.placeholder.com/640x360?text=Video+Thumbnail" width="640" height="360" autoplay muted loop>
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-webm-file.webm" type="video/webm">
+                <track kind="captions" src="/assets/video-captions-en.vtt" srclang="en" label="English Captions" default>
+                <track kind="descriptions" src="/assets/video-descriptions-en.vtt" srclang="en" label="English Descriptions">
+                <p>Your browser does not support the video tag. Please <a href="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" download>download the video</a>.</p>
+            </video>
+            <p>Learn about our student's journey to becoming a successful developer.</p>
+
+            <h3>Podcast Snippet (Audio)</h3>
+            <audio controls preload="metadata">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                <source src="https://www.soundhelix.com/examples/wav/SoundHelix-Song-1.wav" type="audio/wav">
+                <p>Your browser does not support the audio element. You can <a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" download>download the audio here</a>.</p>
+            </audio>
+            <p>A short segment from our latest "Future of Tech" podcast.</p>
+            <hr>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="/submit-contact" method="POST" enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <legend>Your Details</legend>
+                    <p>
+                        <label for="full-name">Full Name:</label><br>
+                        <input type="text" id="full-name" name="fullName" placeholder="John Doe" required autofocus autocomplete="name" size="30" maxlength="50">
+                    </p>
+                    <p>
+                        <label for="user-email">Email:</label><br>
+                        <input type="email" id="user-email" name="userEmail" placeholder="you@example.com" required autocapitalize="off" autocomplete="email">
+                    </p>
+                    <p>
+                        <label for="user-phone">Phone Number:</label><br>
+                        <input type="tel" id="user-phone" name="userPhone" inputmode="tel" pattern="[0-9]{10}" title="Please enter a 10-digit phone number (e.g., 9876543210)" autocomplete="tel">
+                        <small id="phone-help" aria-describedby="user-phone">Optional: Enter your 10-digit phone number without hyphens.</small>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Inquiry Type & Message</legend>
+                    <p>
+                        <label for="inquiry-type">Type of Inquiry:</label><br>
+                        <select id="inquiry-type" name="inquiryType" required>
+                            <option value="">-- Select an option --</option>
+                            <optgroup label="Courses">
+                                <option value="course-info">Course Information</option>
+                                <option value="enrollment">Enrollment</option>
+                            </optgroup>
+                            <optgroup label="Events">
+                                <option value="event-details">Event Details</option>
+                                <option value="speaker-request">Speaker Request</option>
+                            </optgroup>
+                            <option value="general">General Feedback</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="message">Your Message:</label><br>
+                        <textarea id="message" name="message" rows="7" cols="50" placeholder="Type your message here..." required></textarea>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferences & Verification</legend>
+                    <p>
+                        Preferred contact time:
+                        <input type="radio" id="morning" name="contactTime" value="morning"> <label for="morning">Morning</label>
+                        <input type="radio" id="afternoon" name="contactTime" value="afternoon" checked> <label for="afternoon">Afternoon</label>
+                        <input type="radio" id="evening" name="contactTime" value="evening"> <label for="evening">Evening</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="newsletter-optin" name="newsletterOptin" value="yes">
+                        <label for="newsletter-optin">Subscribe to our newsletter for updates</label>
+                    </p>
+                    <p>
+                        <label for="fav-color">Your favorite color (for theme ideas!):</label>
+                        <input type="color" id="fav-color" name="favoriteColor" value="#007bff">
+                    </p>
+                    <p>
+                        <label for="satisfaction-range">Satisfaction Rating (1-10):</label>
+                        <input type="range" id="satisfaction-range" name="satisfaction" min="1" max="10" value="7" step="1">
+                    </p>
+                    <p>
+                        <label for="search-input">Search our site:</label>
+                        <input type="search" id="search-input" list="common-searches" name="siteSearch" placeholder="e.g., HTML tutorials">
+                        <datalist id="common-searches">
+                            <option value="HTML basics">
+                            <option value="CSS grid">
+                            <option value="JavaScript DOM">
+                            <option value="Python web frameworks">
+                        </datalist>
+                    </p>
+                    <p>
+                        Date of Inquiry: <input type="date" name="inquiryDate" value="2025-06-27" readonly>
+                    </p>
+                    <p>
+                        Hidden form field: <input type="hidden" name="sourcePage" value="ComprehensiveDemo">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Simple Math Output</legend>
+                    <p>
+                        <label for="num1">Number 1:</label>
+                        <input type="number" id="num1" name="number1" value="5" oninput="calculateSum()"> +
+                        <label for="num2">Number 2:</label>
+                        <input type="number" id="num2" name="number2" value="3" oninput="calculateSum()"> =
+                        <output name="sumResult" id="sum-result" for="num1 num2"></output>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <input type="submit" value="Submit Inquiry">
+                    <button type="button" onclick="showCustomAlert()">Custom Action</button>
+                    <input type="reset" value="Reset Form">
+                    <input type="button" value="Disabled Button" disabled>
+                </p>
+            </form>
+            <hr>
+        </section>
+
+        <aside>
+            <h3>Quick Links & Facts</h3>
+            <p>Don't miss our latest article on <b>Modern CSS Layouts</b>!</p> 
+            <p>Did you know? The first website went online in <i>1991</i>.</p> 
+            <p>
+                <details>
+                    <summary>What makes HTML semantic?</summary>
+                    <p>Using tags that convey meaning (like <code>&lt;article&gt;</code> or <code>&lt;nav&gt;</code>) rather than generic containers (like <code>&lt;div&gt;</code>) for structure and clarity.</p>
+                </details>
+            </p>
+            <p>
+                <label for="progress-bar">Learning Progress:</label><br>
+                <progress id="progress-bar" value="80" max="100">80% Learning Complete</progress><br>
+                <label for="disk-usage">Disk Usage:</label><br>
+                <meter id="disk-usage" value="0.7" min="0" max="1">70% Disk Usage</meter>
+            </p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; <time datetime="2025">2025</time> TechEd Hub. All rights reserved. <br>
+            <a href="privacy.html" download="PrivacyPolicy.pdf">Download our Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </p>
+        <address>
+            Visit us at:<br>
+            TechEd Hub HQ<br>
+            123 Code Street<br>
+            Chennai, Tamil Nadu, India.
+        </address>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
