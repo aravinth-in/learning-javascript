@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Masterclass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Mastering the CSS Box Model</h1>
+
+    <section class="example-section">
+        <h2>Example 1: Default `content-box` behavior</h2>
+        <div class="box box-content-box">
+            <p>I am a box with `content-box` (default). My content area is 150x100px. Padding and border add to my total size.</p>
+        </div>
+        <p class="explanation">
+            This box has `width: 150px`, `height: 100px`, `padding: 20px`, and `border: 5px solid`.
+            Since `box-sizing: content-box` (default), its **actual rendered width** will be 150px (content) + 20px (left padding) + 20px (right padding) + 5px (left border) + 5px (right border) = **200px**.
+            Its **actual rendered height** will be 100px (content) + 20px (top padding) + 20px (bottom padding) + 5px (top border) + 5px (bottom border) = **150px**.
+        </p>
+    </section>
+
+    <section class="example-section">
+        <h2>Example 2: `border-box` behavior</h2>
+        <div class="box box-border-box">
+            <p>I am a box with `border-box`. My total visible size (including padding & border) is 150x100px.</p>
+        </div>
+        <p class="explanation">
+            This box also has `width: 150px`, `height: 100px`, `padding: 20px`, and `border: 5px solid`.
+            However, with `box-sizing: border-box`, its **actual rendered width** will be exactly **150px** and its **actual rendered height** will be exactly **100px**. The content area shrinks to accommodate padding and border.
+        </p>
+    </section>
+
+    <section class="example-section">
+        <h2>Example 3: Margin Collapse (Vertical)</h2>
+        <div class="box box-margin-collapse red-box">
+            <p>Top box (margin-bottom: 30px)</p>
+        </div>
+        <div class="box box-margin-collapse blue-box">
+            <p>Bottom box (margin-top: 40px)</p>
+        </div>
+        <p class="explanation">
+            When vertical margins of adjacent block-level elements touch, they collapse.
+            The top box has `margin-bottom: 30px`. The bottom box has `margin-top: 40px`.
+            Instead of 30px + 40px = 70px space, the space between them will be the **larger of the two margins**, which is **40px**.
+        </p>
+    </section>
+
+    <section class="example-section">
+        <h2>Example 4: Padding and Margin Differences</h2>
+        <div class="outer-container">
+            <div class="inner-element">
+                <p>This is content inside the inner element.</p>
+            </div>
+        </div>
+        <p class="explanation">
+            The `outer-container` has a background. The `inner-element` has padding and margin.
+            Notice how **padding** (`20px` in `inner-element`) pushes the content away from its *own border* and takes on the `inner-element`'s background color.
+            **Margin** (`30px` in `inner-element`) creates space *outside* its border, pushing it away from the `outer-container`'s boundary, and this space is transparent (shows the `outer-container`'s background).
+        </p>
+    </section>
+
+</body>
+</html>

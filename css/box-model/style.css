@@ -1,0 +1,122 @@
+/* Global Reset for box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box; /* This is generally a good practice for easier layout */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #34495e;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 50px;
+}
+
+.example-section {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+    background-color: #e0f7fa; /* Light cyan */
+    color: #00796b; /* Dark teal */
+    padding: 20px;
+    border: 5px solid #00acc1; /* Cyan border */
+    margin: 20px auto; /* 20px top/bottom, auto left/right for centering */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block; /* Ensure it's a block-level element for width/height */
+}
+
+/* --- Example 1: Default content-box behavior --- */
+.box-content-box {
+    width: 150px;
+    height: 100px;
+    /* No box-sizing explicitly set here, so it defaults to content-box */
+    /* If you've set box-sizing: border-box globally above, you might need to
+       explicitly set box-sizing: content-box; here to see the default behavior.
+       For this demo, let's assume the global reset is commented out or
+       this specific class overrides it. */
+    box-sizing: content-box; /* Overriding global border-box for demonstration */
+    background-color: #ffcdd2; /* Light red */
+    border-color: #d32f2f; /* Darker red */
+    color: #b71c1c;
+}
+
+/* --- Example 2: border-box behavior --- */
+.box-border-box {
+    width: 150px;
+    height: 100px;
+    box-sizing: border-box; /* Explicitly set to border-box */
+    background-color: #c8e6c9; /* Light green */
+    border-color: #388e3c; /* Darker green */
+    color: #1b5e20;
+}
+
+/* --- Example 3: Margin Collapse --- */
+.box-margin-collapse {
+    width: 200px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #777;
+    padding: 10px;
+}
+
+.red-box {
+    background-color: #ffadad;
+    margin-bottom: 30px; /* This margin will collapse */
+    color: #c62828;
+}
+
+.blue-box {
+    background-color: #a0c4ff;
+    margin-top: 40px; /* This margin will collapse */
+    color: #283593;
+}
+
+/* --- Example 4: Padding vs Margin --- */
+.outer-container {
+    width: 300px;
+    background-color: #ffe0b2; /* Light orange background */
+    border: 2px dashed #ff9800; /* Orange border */
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.inner-element {
+    background-color: #c5cae9; /* Light indigo background */
+    padding: 20px; /* Space inside the border, takes inner-element's background */
+    border: 3px solid #3f51b5; /* Indigo border */
+    margin: 30px; /* Space outside the border, transparent (shows outer-container background) */
+    color: #1a237e;
+    font-weight: bold;
+}
+
+.explanation {
+    background-color: #f0f0f0;
+    border-left: 5px solid #a0a0a0;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+    white-space: pre-wrap; /* Preserve formatting for line breaks */
+}
