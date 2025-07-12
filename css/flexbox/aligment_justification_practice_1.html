@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flexbox</title>
+</head>
+<body>
+
+<h1> flex-direction : row</h1>
+<h2> without width</h2>
+<div class="container row">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+
+<h2> with width</h2>
+<div class="container row width">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+
+<h2> with width & wrap</h2>
+<div class="container row width wrap">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+<h1> flex-direction : column</h1>
+<h2> without height</h2>
+<div class="container column">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+
+<h2> with height</h2>
+<h3 style="color: orange"> added margin top to cleary see how justify-content & align-items works</h3>
+<div class="container column height margin-bottom" style="margin-top:500px">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+
+<h2> with height & wrap</h2>
+<div class="container column height wrap">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<style>
+    .container{
+        background-color: lightgray;
+        border-style: solid;
+        border-width: 0.5px;
+        margin: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        /* align-items: stretch; */
+    }
+
+    .box{
+        border-style: solid;
+        border-width: 0.5px;
+        margin: 10px;
+        padding: 10px; 
+    }
+
+    .height{
+        height: 300px;
+    }
+    .width{
+         width: 300px;
+    }
+
+    .wrap{
+        flex-wrap: wrap;
+    }
+
+    .row{
+        flex-direction: row;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .margin-bottom{
+        margin-bottom: 250px;
+    }
+
+</style>
+</body>
+</html>

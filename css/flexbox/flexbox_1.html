@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Part 1</title>
+    <link rel="stylesheet" href="flexbox_1.css">
+</head>
+<body>
+
+    <header>
+        <h1>Flexbox Basics: Container Properties</h1>
+    </header>
+
+    <main>
+        <section class="flex-example">
+            <h2>Example 1.1: Default Flex (Row, No Wrap)</h2>
+            <div class="flex-container container-1">
+                <div class="flex-item">Item 1</div>
+                <div class="flex-item">Item 2</div>
+                <div class="flex-item">Item 3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; }</code></p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 1.2: Column Direction</h2>
+            <div class="flex-container container-2">
+                <div class="flex-item">Item A</div>
+                <div class="flex-item">Item B</div>
+                <div class="flex-item">Item C</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-direction: column; }</code></p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 1.3: Row Reverse Direction</h2>
+            <div class="flex-container container-3">
+                <div class="flex-item">Item X</div>
+                <div class="flex-item">Item Y</div>
+                <div class="flex-item">Item Z</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-direction: row-reverse; }</code></p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 1.4: Wrapping Items</h2>
+            <div class="flex-container container-4">
+                <div class="flex-item">Long Item 1</div>
+                <div class="flex-item">Another Very Long Item 2</div>
+                <div class="flex-item">Item 3</div>
+                <div class="flex-item">Item 4</div>
+                <div class="flex-item">One More Item 5</div>
+                <div class="flex-item">Shorty 6</div>
+                <div class="flex-item">This is Item 7</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-wrap: wrap; }</code></p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 1.5: Column Reverse & Wrapping (using `flex-flow`)</h2>
+            <div class="flex-container container-5">
+                <div class="flex-item">Alpha</div>
+                <div class="flex-item">Beta</div>
+                <div class="flex-item">Gamma</div>
+                <div class="flex-item">Delta</div>
+                <div class="flex-item">Epsilon</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-flow: column-reverse wrap; height: 300px; }</code> (Note: Height is important for column wrapping)</p>
+        </section>
+
+    </main>
+
+</body>
+</html>

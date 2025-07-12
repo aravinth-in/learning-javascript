@@ -1,0 +1,32 @@
+<div class="container-1"> Box height </div>
+<div class="container-2"> Box min-height</div>
+<div class="container-3"> Box height overflow: hidden</div>
+<div class="container-4"> Box min-height overflow: hidden</div>
+
+<style>
+
+    div{
+        margin: 20px;
+        border-style: solid;
+        border-width: 0.5px;
+        background-color: lightgray;
+    }
+
+    .container-1 {  
+        height: 10px;
+    }
+
+    .container-2 {
+        min-height: 10px;
+    }
+
+    .container-3 {
+        height: 10px;
+        overflow: hidden; /* content will be cut off */
+    }
+
+    .container-4 {
+        min-height: 10px;
+        overflow: hidden; /* content will be cut off */
+    }
+</style>

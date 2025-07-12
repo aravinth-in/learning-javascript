@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Mastery - Part 2</title>
+    <link rel="stylesheet" href="flexbox_2.css">
+</head>
+<body>
+
+    <header>
+        <h1>Flexbox Mastery: Alignment & Justification</h1>
+    </header>
+
+    <main>
+        <section class="flex-example">
+            <h2>Example 2.1: `justify-content` (Main Axis Distribution)</h2>
+            <div class="flex-container container-justify-start">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; justify-content: flex-start; }</code></p>
+
+            <div class="flex-container container-justify-end">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; justify-content: flex-end; }</code></p>
+
+            <div class="flex-container container-justify-center">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; justify-content: center; }</code></p>
+
+            <div class="flex-container container-justify-space-between">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; justify-content: space-between; }</code></p>
+
+            <div class="flex-container container-justify-space-around">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; justify-content: space-around; }</code></p>
+
+            <div class="flex-container container-justify-space-evenly">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; justify-content: space-evenly; }</code></p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 2.2: `align-items` (Cross Axis Alignment)</h2>
+            <div class="flex-container container-align-start">
+                <div class="flex-item item-short">Short</div>
+                <div class="flex-item">Normal Item</div>
+                <div class="flex-item item-tall">Tall Item</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; align-items: flex-start; }</code></p>
+
+            <div class="flex-container container-align-end">
+                <div class="flex-item item-short">Short</div>
+                <div class="flex-item">Normal Item</div>
+                <div class="flex-item item-tall">Tall Item</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; align-items: flex-end; }</code></p>
+
+            <div class="flex-container container-align-center">
+                <div class="flex-item item-short">Short</div>
+                <div class="flex-item">Normal Item</div>
+                <div class="flex-item item-tall">Tall Item</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; align-items: center; }</code></p>
+
+            <div class="flex-container container-align-stretch">
+                <div class="flex-item">Item 1 (Stretches)</div>
+                <div class="flex-item">Item 2</div>
+                <div class="flex-item">Item 3</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; align-items: stretch; }</code> (Note: Items must not have fixed height to stretch)</p>
+
+            <div class="flex-container container-align-baseline">
+                <div class="flex-item" style="font-size: 1em;">1em Text</div>
+                <div class="flex-item" style="font-size: 2em;">2em Text</div>
+                <div class="flex-item" style="font-size: 1.5em;">1.5em Text</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; align-items: baseline; }</code></p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 2.3: `align-content` (Multi-Line Cross Axis Distribution)</h2>
+            <div class="flex-container container-align-content-start">
+                <div class="flex-item">Item 1</div><div class="flex-item">Item 2</div><div class="flex-item">Item 3</div><div class="flex-item">Item 4</div><div class="flex-item">Item 5</div><div class="flex-item">Item 6</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-wrap: wrap; height: 300px; align-content: flex-start; }</code></p>
+
+            <div class="flex-container container-align-content-center">
+                <div class="flex-item">Item 1</div><div class="flex-item">Item 2</div><div class="flex-item">Item 3</div><div class="flex-item">Item 4</div><div class="flex-item">Item 5</div><div class="flex-item">Item 6</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-wrap: wrap; height: 300px; align-content: center; }</code></p>
+
+            <div class="flex-container container-align-content-space-between">
+                <div class="flex-item">Item 1</div><div class="flex-item">Item 2</div><div class="flex-item">Item 3</div><div class="flex-item">Item 4</div><div class="flex-item">Item 5</div><div class="flex-item">Item 6</div>
+            </div>
+            <p class="code-snippet"><code>.flex-container { display: flex; flex-wrap: wrap; height: 300px; align-content: space-between; }</code></p>
+        </section>
+
+    </main>
+
+</body>
+</html>

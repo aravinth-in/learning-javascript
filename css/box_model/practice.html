@@ -1,0 +1,47 @@
+<!-- border-box role when the height and width is set -->
+<div class="box"> Box </div>
+
+<hr>
+
+<!-- margin collapse, the biggest margin among the box will apply, in this case it is 20px(box2) than 10px(box1) -->
+<div class="box-1"> margin-bottom 10px Box 1</div>
+<div class="box-2"> margin-top 20px Box 2</div>
+
+<style> 
+    .box{
+        margin: 10px;
+        padding: 10px;
+        border-style: solid;
+        box-sizing: border-box;
+        display : inline-block;
+        text-align: center;
+        align-content: center;
+        height: 150px;
+        width: 150px;
+    }
+
+    .box-1{
+        margin: 10px;
+        padding: 10px;
+        background-color: rgb(243, 203, 130);
+        border-style: solid;
+        box-sizing: border-box;
+        text-align: center;
+        align-content: center;
+        height: 150px;
+        width: 150px;
+    }
+
+    .box-2{
+        margin: 20px 10px;
+        padding: 10px;
+        background-color: pink;
+        border-style: solid;
+        box-sizing: border-box;
+        text-align: center;
+        align-content: center;
+        height: 150px;
+        width: 150px;
+    }
+</style>
+
