@@ -1,0 +1,148 @@
+/* Basic Reset & Global Styles (from Part 1, keep them) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.flex-example {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.flex-container {
+    background-color: #e3f2fd; /* Light blue */
+    border: 2px solid #2196f3; /* Blue */
+    padding: 10px;
+    min-height: 120px; /* Give containers some height */
+    display: flex; /* This is the key! */
+    margin-bottom: 20px; /* Add margin between containers in the same section */
+    flex-wrap: wrap; /* Allow wrapping for some demos, good default */
+}
+
+.flex-item {
+    background-color: #bbdefb; /* Lighter blue */
+    border: 1px solid #1976d2; /* Darker blue */
+    padding: 15px 20px;
+    margin: 5px; /* Margin around items */
+    color: #1a237e;
+    font-weight: bold;
+    text-align: center;
+    flex-basis: auto; /* Default flex-basis */
+    /* Remove default width/height here to allow flex-grow/shrink to be more evident */
+}
+
+.code-snippet {
+    background-color: #e8eaf6;
+    border-left: 4px solid #3f51b5;
+    padding: 10px 15px;
+    margin-top: 20px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: #4a148c;
+    overflow-x: auto;
+}
+
+.code-snippet code {
+    display: block;
+}
+
+/* --- Specific styles for each example container (Part 3) --- */
+
+/* Example 3.1: order property */
+.container-order {
+    /* flex-direction: row; (default) */
+}
+.item-order-2 { order: 2; }
+.item-order-0 { order: 0; } /* Default */
+.item-order-minus1 { order: -1; }
+.item-order-1 { order: 1; }
+
+/* Example 3.2: flex-grow property */
+.container-grow {
+    /* flex-direction: row; (default) */
+    /* Items have no specific width, allowing grow to be visible */
+}
+.item-grow-0 { flex-grow: 0; }
+.item-grow-1 { flex-grow: 1; }
+.item-grow-2 { flex-grow: 2; }
+
+/* Example 3.3: flex-shrink property */
+.container-shrink {
+    width: 600px; /* Set a fixed width to ensure potential overflow */
+    /* flex-direction: row; (default) */
+    /* Give items a base width so they have something to shrink from */
+    .flex-item {
+        width: 200px; /* Base width */
+    }
+}
+.item-shrink-1 { flex-shrink: 1; } /* Default */
+.item-shrink-0 { flex-shrink: 0; } /* Will not shrink */
+.item-shrink-2 { flex-shrink: 2; } /* Will shrink twice as much as default */
+
+/* Example 3.4: flex-basis property */
+.container-basis {
+    /* flex-direction: row; (default) */
+    justify-content: space-between; /* To see initial sizes clearly */
+}
+.item-basis-auto { flex-basis: auto; } /* Based on content or width if set */
+.item-basis-100px { flex-basis: 100px; }
+.item-basis-20 { flex-basis: 20%; } /* 20% of container's width */
+
+
+/* Example 3.5: flex shorthand */
+.container-flex-shorthand {
+    /* flex-direction: row; (default) */
+}
+.item-flex-1 {
+    flex: 1; /* flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+}
+.item-flex-none {
+    flex: none; /* flex-grow: 0, flex-shrink: 0, flex-basis: auto */
+}
+.item-flex-00200 {
+    flex: 0 0 200px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 200px */
+}
+
+/* Example 3.6: align-self property */
+.container-align-self {
+    height: 200px; /* Give container height for cross-axis alignment */
+    align-items: stretch; /* Default alignment for most items */
+}
+.item-align-self-start { align-self: flex-start; }
+.item-align-self-end { align-self: flex-end; }
+.item-align-self-center { align-self: center; }
+/* Default item will stretch because container's align-items is stretch */

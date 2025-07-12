@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flexbox</title>
+</head>
+<body>
+
+<h1> flex-direction : row</h1>
+
+<h2 style="color: green;"> flex shrink: box without width</h2>
+<div class="row" 
+    style="display: flex; width: 300px; border-style: solid; border-width: 0.5px;">  
+    <div class="" 
+        style="background-color: green; flex-shrink: 0; height:80px"> 
+        Box 1: flex-shrink: 0
+    </div>
+    <div class="" 
+        style="background-color: greenyellow; flex-shrink: 0; height:80px"> 
+        Box 2 : flex-shrink: 0
+    </div>
+</div>
+
+
+<h2 style="color: green;"> flex shrink: box with width</h2>
+<div class="row" 
+    style="display: flex; width: 200px; border-style: solid; border-width: 0.5px;">  
+    <div class="" 
+        style="background-color: green; flex-shrink: 0; width: 150px; height:80px"> 
+        Box 1: flex-shrink: 0
+    </div>
+    <div class="" 
+        style="background-color: greenyellow; flex-shrink: 0; width: 150px; height:80px"> 
+        Box 2 : flex-shrink: 0
+    </div>
+</div>
+
+<h2 style="color: green;"> flex shrink: box with width and box 2 allowed to shrink</h2>
+<div class="row" 
+    style="display: flex; width: 200px; border-style: solid; border-width: 0.5px;">  
+    <div class="" 
+        style="background-color: green; flex-shrink: 0; width: 150px; height:80px"> 
+        Box 1: flex-shrink: 0
+    </div>
+    <div class="" 
+        style="background-color: greenyellow; flex-shrink: 1; width: 150px; height:80px"> 
+        Box 2 : flex-shrink: 1
+    </div>
+</div>
+
+<h2> without width</h2>
+<div class="container row">  
+    <div class="box"> Box 1</div>
+    <div class="box" style="flex: 0 0 150px; background-color:greenyellow;"> Box 2 flex-basis:150px</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box" style="order:-1; flex-grow:3; background-color: greenyellow;"> Box 6 : flex-grow: 3, order: -1</div>
+    <div class="box"> Box 7</div>
+    <div class="box" style="flex-grow:1; background-color: greenyellow;"> Box 8 : flex-grow: 2</div>
+</div>
+
+<hr>
+
+<h2> with width</h2>
+<h3 style="color: orange"> added height to show how align-content works</h3>
+<div class="container row width height">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box" style="flex-grow:1; background-color: greenyellow;"> flex-grow:1</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box" style="align-self: center; background-color: greenyellow;"> align-self: center</div>
+</div>
+
+<hr>
+
+<h2> with width & wrap</h2>
+<h3 style="color: orange"> added height to show how align-content works</h3>
+<div class="container row width wrap height" style="width: 250px;">  
+    <div class="box"> Box 1</div>
+    <div class="box" style="flex-shrink: 0; width: 300px; background-color: greenyellow;"> Box 2 flex-shrink: 0</div>
+    <div class="box" style="flex-shrink: 1; width: 300px; background-color: greenyellow;"> Box 3 flex-shrink: 1</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+<h1> flex-direction : column - NO CHANGES, LEFT IT FOR PRACTIE IN FUTURE</h1>
+<h2> without height</h2>
+<div class="container column">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+
+<h2> with height</h2>
+<h3 style="color: orange"> added margin top to cleary see how justify-content & align-items works</h3>
+<div class="container column height margin-bottom" style="margin-top:500px">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<hr>
+
+<h2> with height & wrap</h2>
+<div class="container column height wrap">  
+    <div class="box"> Box 1</div>
+    <div class="box"> Box 2</div>
+    <div class="box"> Box 3</div>
+    <div class="box"> Box 4</div>
+    <div class="box"> Box 5</div>
+    <div class="box"> Box 6</div>
+    <div class="box"> Box 7</div>
+    <div class="box"> Box 8</div>
+</div>
+
+<style>
+    .container{
+        background-color: lightgray;
+        border-style: solid;
+        border-width: 0.5px;
+        margin: 10px;
+        display: flex;
+        flex-wrap: wrap; /* To work with align-content, ad flex-wrap */
+        align-content: stretch;
+    }
+
+    .box{
+        border-style: solid;
+        border-width: 0.5px;
+        margin: 10px;
+        padding: 10px; 
+    }
+
+    .height{
+        height: 300px;
+    }
+    .width{
+         width: 300px;
+    }
+
+    .wrap{
+        flex-wrap: wrap;
+    }
+
+    .row{
+        flex-direction: row;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .margin-bottom{
+        margin-bottom: 250px;
+    }
+
+</style>
+</body>
+</html>

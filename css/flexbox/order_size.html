@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Part 3</title>
+    <link rel="stylesheet" href="order_size.css">
+</head>
+<body>
+
+    <header>
+        <h1>Flexbox: Ordering & Sizing Items</h1>
+    </header>
+
+    <main>
+        <section class="flex-example">
+            <h2>Example 3.1: `order` Property</h2>
+            <div class="flex-container container-order">
+                <div class="flex-item item-order-2">Item A (order: 2)</div>
+                <div class="flex-item item-order-0">Item B (order: 0)</div>
+                <div class="flex-item item-order-minus1">Item C (order: -1)</div>
+                <div class="flex-item item-order-1">Item D (order: 1)</div>
+            </div>
+            <p class="code-snippet">
+                <code>.item-order-2 { order: 2; }</code><br>
+                <code>.item-order-0 { order: 0; }</code><br>
+                <code>.item-order-minus1 { order: -1; }</code><br>
+                <code>.item-order-1 { order: 1; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 3.2: `flex-grow` Property</h2>
+            <div class="flex-container container-grow">
+                <div class="flex-item item-grow-0">Grow 0</div>
+                <div class="flex-item item-grow-1">Grow 1</div>
+                <div class="flex-item item-grow-2">Grow 2</div>
+                <div class="flex-item item-grow-1">Grow 1</div>
+            </div>
+            <p class="code-snippet">
+                <code>.item-grow-0 { flex-grow: 0; }</code><br>
+                <code>.item-grow-1 { flex-grow: 1; }</code><br>
+                <code>.item-grow-2 { flex-grow: 2; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 3.3: `flex-shrink` Property</h2>
+            <div class="flex-container container-shrink">
+                <div class="flex-item item-shrink-1">Shrink 1 (Default)</div>
+                <div class="flex-item item-shrink-0">Shrink 0 (Won't shrink)</div>
+                <div class="flex-item item-shrink-2">Shrink 2 (Shrinks more)</div>
+                <div class="flex-item item-shrink-1">Shrink 1</div>
+            </div>
+            <p class="code-snippet">
+                <code>.item-shrink-1 { flex-shrink: 1; }</code><br>
+                <code>.item-shrink-0 { flex-shrink: 0; }</code><br>
+                <code>.item-shrink-2 { flex-shrink: 2; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 3.4: `flex-basis` Property</h2>
+            <div class="flex-container container-basis">
+                <div class="flex-item item-basis-auto">Basis: auto</div>
+                <div class="flex-item item-basis-100px">Basis: 100px</div>
+                <div class="flex-item item-basis-20">Basis: 20%</div>
+            </div>
+            <p class="code-snippet">
+                <code>.item-basis-auto { flex-basis: auto; }</code><br>
+                <code>.item-basis-100px { flex-basis: 100px; }</code><br>
+                <code>.item-basis-20 { flex-basis: 20%; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 3.5: `flex` Shorthand</h2>
+            <div class="flex-container container-flex-shorthand">
+                <div class="flex-item item-flex-1">flex: 1</div>
+                <div class="flex-item item-flex-none">flex: none</div>
+                <div class="flex-item item-flex-00200">flex: 0 0 200px</div>
+            </div>
+            <p class="code-snippet">
+                <code>.item-flex-1 { flex: 1; }</code><br>
+                <code>.item-flex-none { flex: none; }</code><br>
+                <code>.item-flex-00200 { flex: 0 0 200px; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 3.6: `align-self` Property</h2>
+            <div class="flex-container container-align-self">
+                <div class="flex-item">Default</div>
+                <div class="flex-item item-align-self-start">Align Start</div>
+                <div class="flex-item item-align-self-end">Align End</div>
+                <div class="flex-item item-align-self-center">Align Center</div>
+                <div class="flex-item">Default</div>
+            </div>
+            <p class="code-snippet">
+                <code>.flex-container { align-items: stretch; /* or any default */ }</code><br>
+                <code>.item-align-self-start { align-self: flex-start; }</code><br>
+                <code>.item-align-self-end { align-self: flex-end; }</code><br>
+                <code>.item-align-self-center { align-self: center; }</code>
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>
