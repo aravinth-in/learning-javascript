@@ -1,0 +1,142 @@
+/* Basic Reset & Global Styles (from previous parts, keep them) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.grid-example {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.grid-container {
+    background-color: #e8f5e9; /* Light green */
+    border: 2px solid #4caf50; /* Green */
+    padding: 10px;
+    min-height: 150px; /* Default height for containers */
+    display: grid; /* This is the key! */
+    margin-bottom: 20px;
+    gap: 10px; /* Add some default gap for better visualization */
+}
+
+.grid-item {
+    background-color: #c8e6c9; /* Lighter green */
+    border: 1px solid #388e3c; /* Darker green */
+    padding: 15px 20px;
+    color: #1b5e20;
+    font-weight: bold;
+    /* Removed default flex alignment from part 1/2 to let grid alignment properties take effect */
+    /* text-align: center; (will be overridden by justify-items/self) */
+}
+
+.code-snippet {
+    background-color: #e3f2fd; /* Light blue */
+    border-left: 4px solid #2196f3; /* Blue */
+    padding: 10px 15px;
+    margin-top: 20px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: #1a237e;
+    overflow-x: auto;
+}
+
+.code-snippet code {
+    display: block;
+}
+
+/* --- Specific styles for each example container (Part 3) --- */
+
+/* Common styling for items to prevent stretching by default, to better show start/end/center */
+.container-grid-fixed-items .grid-item {
+    width: 80px; /* Fixed width for horizontal alignment */
+    height: 60px; /* Fixed height for vertical alignment */
+}
+
+/* Example 3.1: justify-items (Item Horizontal Alignment) */
+.container-justify-items {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: start; /* Default for the container */
+    background-color: #fce4ec; /* Pink */
+}
+.container-justify-items .grid-item { background-color: #ffcdd2; }
+.justify-item-end { justify-self: end; }
+.justify-item-center { justify-self: center; }
+.container-grid-fixed-items .grid-item.justify-item-stretch {
+    justify-self: stretch;
+    width: auto;
+}
+
+/* Example 3.2: align-items (Item Vertical Alignment) */
+.container-align-items {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr; /* Single row that takes available height */
+    align-items: start; /* Default for the container */
+    height: 200px; /* Give container a fixed height to see vertical alignment */
+    background-color: #fff3e0; /* Orange */
+}
+.container-align-items .grid-item { background-color: #ffe0b2; }
+.align-item-end { align-self: end; }
+.align-item-center { align-self: center; }
+.grid-item.align-item-stretch {
+    align-self: stretch; /* Overrides fixed height to stretch */
+    height: auto; /* Allow stretching */
+}
+/* For baseline demo, font sizes are set inline in HTML */
+
+
+/* Example 3.3: justify-content (Grid Horizontal Alignment) */
+.container-justify-content {
+    /* Define explicit column sizes that are smaller than the container width */
+    grid-template-columns: repeat(3, 100px); /* Total grid width: 300px + gaps */
+    justify-content: center; /* Aligns the *entire* grid horizontally */
+    background-color: #e3f2fd; /* Light Blue */
+    /* To see the effect, make sure the grid is smaller than its container.
+       The default max-width for main-content and padding on example-section already helps. */
+}
+.container-justify-content .grid-item { background-color: #bbdefb; }
+
+
+/* Example 3.4: align-content (Grid Vertical Alignment) */
+.container-align-content {
+    /* Define explicit row sizes that are smaller than the container height */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 80px 80px; /* Total grid height: 160px + gap */
+    height: 300px; /* Crucial: Make container taller than grid content */
+    align-content: center; /* Aligns the *entire* grid vertically */
+    background-color: #ede7f6; /* Light Purple */
+}
+.container-align-content .grid-item { background-color: #d1c4e9; }

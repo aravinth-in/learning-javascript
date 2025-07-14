@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h1> Grid Placing & Sizing</h1>
+    <div class="container">
+        <div class="item grid-line-1">
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        </div>
+        <div class="item"> Item 2</div>
+        <div class="item"> Item 3</div>
+        <div class="item"> Item 4</div>
+        <div class="item grid-line-2"> 
+            grid-column: 2/4;
+            grid-row: 3/5;
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="item"> Item 1</div>
+        <div class="item grid-row-span"> grid-row: span 2;</div>
+        <div class="item grid-column-span"> grid-column: span 4</div>
+        <div class="item grid-area"> grid-area: 3 / 2 / 5 /4</div>
+    </div>
+
+    <div class="container grid-template-areas">
+        <div class="item header"> header </div>
+        <div class="item nav"> nav </div>
+        <div class="item main"> main content </div>
+        <div class="item sidebar"> sidebar </div>
+        <div class="item footer"> footer </div>
+    </div>
+
+    <style>
+        body{
+            box-sizing: border-box;
+        }
+
+        .container{
+            display:grid;
+            width: 400px;
+            height: 250px;
+            background-color: rgb(247, 221, 221);
+            border-style: solid;
+            border-width: 0.5px;
+            padding: 10px;
+            gap: 10px;
+            margin: 40px;
+        }
+
+        .item{
+            border: 0.5px solid;
+            padding: 2px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-line-1{
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            background-color: lightblue;
+        }
+
+        .grid-line-2{
+            grid-column: 2/4;
+            grid-row: 3/5;
+            background-color: lightgrey;
+        }
+
+        .grid-row-span{
+            grid-row: span 2;
+            background-color: lightgrey;
+        }
+
+        .grid-column-span{
+            grid-column: span 4;
+            background-color: lightblue;
+        }
+
+        .grid-area{
+            grid-area: 3 /2 / 5 / 4;
+            background-color: lightgreen;
+        }
+
+        .grid-template-areas{
+            grid-template-columns: 60px 1fr 70px;
+            grid-template-rows: 30px 1fr 40px; 
+            grid-template-areas:
+            "head head head"
+            "nav main side"
+            "foot foot foot";
+        }
+
+        .header{
+            grid-area: head;
+        }
+
+        .nav{
+            grid-area: nav;
+        }
+
+        .main{
+            grid-area: main;
+        }
+
+        .sidebar{
+            grid-area: side;
+        }
+
+        .footer{
+            grid-area: foot;
+        }
+    </style>
+</body>
+</html>

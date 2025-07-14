@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid - Part 2</title>
+    <link rel="stylesheet" href="placing_sizing.css">
+</head>
+<body>
+
+    <header>
+        <h1>CSS Grid: Placing & Sizing Items</h1>
+    </header>
+
+    <main>
+        <section class="grid-example">
+            <h2>Example 2.1: Placing Items by Line Numbers</h2>
+            <div class="grid-container container-place-lines">
+                <div class="grid-item item-a">Item A (Col 1-3)</div>
+                <div class="grid-item item-b">Item B (Col 3-5, Row 1-3)</div>
+                <div class="grid-item item-c">Item C (Col 1, Row 2)</div>
+                <div class="grid-item item-d">Item D (Col 2, Row 3)</div>
+            </div>
+            <p class="code-snippet">
+                <code>.container-place-lines { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 100px); }</code><br>
+                <code>.item-a { grid-column: 1 / 3; }</code><br>
+                <code>.item-b { grid-column: 3 / 5; grid-row: 1 / 3; }</code><br>
+                <code>.item-c { grid-column: 1; grid-row: 2; }</code><br>
+                <code>.item-d { grid-column: 2; grid-row: 3; }</code>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 2.2: Spanning Items (`span`)</h2>
+            <div class="grid-container container-span">
+                <div class="grid-item item-span-a">Span A (Col span 3)</div>
+                <div class="grid-item item-span-b">Span B (Row span 2)</div>
+                <div class="grid-item item-span-c">Span C</div>
+                <div class="grid-item item-span-d">Span D</div>
+            </div>
+            <p class="code-snippet">
+                <code>.container-span { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 120px); }</code><br>
+                <code>.item-span-a { grid-column: span 3; }</code><br>
+                <code>.item-span-b { grid-row: span 2; }</code>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 2.3: `grid-area` (Shorthand for lines)</h2>
+            <div class="grid-container container-grid-area-lines">
+                <div class="grid-item item-area-1">Area 1 (1/1/3/2)</div>
+                <div class="grid-item item-area-2">Area 2 (1/2/2/4)</div>
+                <div class="grid-item item-area-3">Area 3 (2/2/3/4)</div>
+            </div>
+            <p class="code-snippet">
+                <code>.container-grid-area-lines { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 120px); }</code><br>
+                <code>.item-area-1 { grid-area: 1 / 1 / 3 / 2; }</code><br>
+                <code>.item-area-2 { grid-area: 1 / 2 / 2 / 4; }</code><br>
+                <code>.item-area-3 { grid-area: 2 / 2 / 3 / 4; }</code>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 2.4: `grid-template-areas` (Naming and Visual Layout)</h2>
+            <div class="grid-container container-named-areas">
+                <div class="grid-item header-item">Header</div>
+                <div class="grid-item nav-item">Nav</div>
+                <div class="grid-item main-item">Main Content</div>
+                <div class="grid-item sidebar-item">Sidebar</div>
+                <div class="grid-item footer-item">Footer</div>
+            </div>
+            <p class="code-snippet">
+                <code>.container-named-areas {</code><br>
+                <code>  grid-template-columns: 100px 1fr 200px;</code><br>
+                <code>  grid-template-rows: 60px 1fr 80px;</code><br>
+                <code>  grid-template-areas:</code><br>
+                <code>    "head head head"</code><br>
+                <code>    "nav  main side"</code><br>
+                <code>    "foot foot foot";</code><br>
+                <code>}</code><br>
+                <code>.header-item { grid-area: head; } /* etc. */</code>
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>

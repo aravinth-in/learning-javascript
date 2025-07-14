@@ -1,0 +1,122 @@
+/* Basic Reset & Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.grid-example {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.grid-container {
+    background-color: #e8f5e9; /* Light green */
+    border: 2px solid #4caf50; /* Green */
+    padding: 10px;
+    min-height: 150px; /* Give containers some height to demonstrate auto-rows */
+    display: grid; /* This is the key! */
+    margin-bottom: 20px;
+}
+
+.grid-item {
+    background-color: #c8e6c9; /* Lighter green */
+    border: 1px solid #388e3c; /* Darker green */
+    padding: 15px 20px;
+    color: #1b5e20;
+    font-weight: bold;
+    text-align: center;
+    display: flex; /* Using flex to center content within grid cells */
+    justify-content: center;
+    align-items: center;
+}
+
+.code-snippet {
+    background-color: #e3f2fd; /* Light blue */
+    border-left: 4px solid #2196f3; /* Blue */
+    padding: 10px 15px;
+    margin-top: 20px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: #1a237e;
+    overflow-x: auto; /* For long code lines */
+}
+
+.code-snippet code {
+    display: block; /* Ensures code block takes full width */
+}
+
+/* --- Specific styles for each example container --- */
+
+/* Example 1.1: Basic Grid - Fixed Columns, Auto Rows */
+.container-1 {
+    grid-template-columns: 100px 200px 150px;
+    /* grid-auto-rows: auto; (default, content-sized) */
+}
+
+/* Example 1.2: Flexible Columns (fr unit) */
+.container-2 {
+    grid-template-columns: 1fr 2fr 1fr; /* Second column is twice as wide as others */
+}
+
+/* Example 1.3: Combining Fixed, fr, and auto */
+.container-3 {
+    grid-template-columns: 100px auto 1fr;
+    /* First column is fixed 100px.
+       Second column takes up remaining space based on content, then fills if needed.
+       Third column takes up 1 fraction of *remaining available space*. */
+}
+
+/* Example 1.4: Defining Rows and Columns (Explicit Grid) */
+.container-4 {
+    grid-template-columns: 1fr 3fr; /* Two columns: second is 3x wider */
+    grid-template-rows: 50px auto 70px; /* Three rows: fixed 50px, auto, fixed 70px */
+    height: 300px; /* Give fixed height to see row distribution */
+}
+
+/* Example 1.5: Using repeat() and gap */
+.container-5 {
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 15px; /* 15px space between all grid items */
+}
+
+/* Example 1.6: minmax() for Responsive Tracks */
+.container-6 {
+    /* auto-fit: Creates as many columns as can fit without overflowing.
+       minmax(150px, 1fr): Each column will be at least 150px, but will grow to 1fr if space. */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h1> Grid basics</h1>
+    <h2> set explicit height, rows size</h2>
+    <div class="container column height row">
+        <div class="item"> Item 1</div>
+        <div class="item"> Item 2</div>
+        <div class="item"> Item 3</div>
+        <div class="item"> Item 4</div>
+        <div class="item"> Item 5</div>
+        <div class="item"> Item 6</div>
+        <div class="item"> Item 7</div>
+        <div class="item"> Item 8</div>
+    </div>
+
+    <h2> set explicit height only</h2>
+    <div class="container column height">
+        <div class="item"> Item 1</div>
+        <div class="item"> Item 2</div>
+        <div class="item"> Item 3</div>
+        <div class="item"> Item 4</div>
+        <div class="item"> Item 5</div>
+        <div class="item"> Item 6</div>
+        <div class="item"> Item 7</div>
+        <div class="item"> Item 8</div>
+    </div>
+
+    <h2> no explicit height and row</h2>
+    <div class="container column">
+        <div class="item"> Item 1</div>
+        <div class="item"> Item 2</div>
+        <div class="item"> Item 3</div>
+        <div class="item"> Item 4</div>
+        <div class="item"> Item 5</div>
+        <div class="item"> Item 6</div>
+        <div class="item"> Item 7</div>
+        <div class="item"> Item 8</div>
+    </div>
+
+    <h2>grid-template-columns: repeat(5, minmax(100px, 1fr));</h2>
+    <div class="container repeat-1">
+        <div class="item"> Item 1</div>
+        <div class="item"> Item 2</div>
+        <div class="item"> Item 3</div>
+        <div class="item" style="background-color: lightgreen;"> Item 4 : ABCABCABCACBACBACB</div>
+        <div class="item"> Item 5</div>
+        <div class="item"> Item 6</div>
+        <div class="item"> Item 7</div>
+        <div class="item"> Item 8</div>
+    </div>
+
+    <h2>grid-template-columns: repeat(6, minmax(10px, 50px));</h2>
+    <div class="container repeat-2">
+        <div class="item"> Item 1</div>
+        <div class="item"> Item 2</div>
+        <div class="item"> Item 3</div>
+        <div class="item"> Item 4</div>
+        <div class="item"> Item 5</div>
+        <div class="item"> Item 6</div>
+        <div class="item"> Item 7</div>
+        <div class="item"> Item 8</div>
+    </div>
+
+    <style>
+        body{
+            box-sizing: border-box;
+        }
+        .container{
+            display:grid;
+            width: 400px;
+            background-color: lightgray;
+            border-style: solid;
+            border-width: 0.5px;
+            padding: 10px;
+            gap: 10px;
+            margin: 40px;
+        }
+
+        .item{
+            height: 20px;
+            width: auto;
+            border: 0.5px solid;
+            padding: 2px;
+        }
+
+        .height{
+            height: 60px;
+        }
+
+        .row{
+            grid-template-rows: 10px 10px;
+        }
+
+        .column{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .repeat-1{
+            grid-template-columns: repeat(5, minmax(100px, 1fr));
+        }
+
+        .repeat-2{
+            grid-template-columns: repeat(6, minmax(10px, 50px));
+        }
+    </style>
+</body>
+</html>

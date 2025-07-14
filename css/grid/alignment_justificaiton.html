@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid - Part 3</title>
+    <link rel="stylesheet" href="alignment_justificaiton.css">
+</head>
+<body>
+
+    <header>
+        <h1>CSS Grid: Alignment & Justification</h1>
+    </header>
+
+    <main>
+        <section class="grid-example">
+            <h2>Example 3.1: `justify-items` (Item Horizontal Alignment)</h2>
+            <div class="grid-container container-justify-items container-grid-fixed-items">
+                <div class="grid-item">Start</div>
+                <div class="grid-item justify-item-end">End</div>
+                <div class="grid-item justify-item-center">Center</div>
+                <div class="grid-item justify-item-stretch">Stretch</div>
+            </div>
+            <p class="code-snippet">
+                <code>.grid-container { display: grid; grid-template-columns: repeat(4, 1fr); justify-items: start; }</code><br>
+                <code>.item-end { justify-self: end; }</code><br>
+                <code>.item-center { justify-self: center; }</code><br>
+                <code>.item-stretch { justify-self: stretch; }</code>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 3.2: `align-items` (Item Vertical Alignment)</h2>
+            <div class="grid-container container-align-items">
+                <div class="grid-item">Start</div>
+                <div class="grid-item align-item-end">End</div>
+                <div class="grid-item align-item-center">Center</div>
+                <div class="grid-item align-item-stretch">Stretch</div>
+                <div class="grid-item align-item-baseline" style="font-size: 0.8em;">Baseline Small</div>
+                <div class="grid-item" style="font-size: 1.5em;">Baseline Large</div>
+            </div>
+            <p class="code-snippet">
+                <code>.grid-container { display: grid; grid-template-columns: repeat(6, 1fr); align-items: start; height: 200px; }</code><br>
+                <code>.item-end { align-self: end; }</code><br>
+                <code>.item-center { align-self: center; }</code><br>
+                <code>.item-stretch { align-self: stretch; }</code><br>
+                <code>.item-baseline { align-self: baseline; }</code>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 3.3: `justify-content` (Grid Horizontal Alignment)</h2>
+            <div class="grid-container container-justify-content">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+            </div>
+            <p class="code-snippet">
+                <code>.grid-container { display: grid; grid-template-columns: repeat(3, 100px); justify-content: center; }</code>
+                <br><em>(Try changing to `space-between`, `space-around`, `space-evenly`)</em>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 3.4: `align-content` (Grid Vertical Alignment)</h2>
+            <div class="grid-container container-align-content">
+                <div class="grid-item">Item A</div>
+                <div class="grid-item">Item B</div>
+                <div class="grid-item">Item C</div>
+                <div class="grid-item">Item D</div>
+            </div>
+            <p class="code-snippet">
+                <code>.grid-container { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 80px 80px; height: 300px; align-content: center; }</code>
+                <br><em>(Try changing to `space-between`, `space-around`, `space-evenly`)</em>
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>

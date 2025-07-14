@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h1> Grid Align & Justify</h1>
+    <h2> justify-self</h2>
+    <div class="container container-1 column">
+        <div class="item justify-start"> Start </div>
+        <div class="item justify-end"> End</div>
+        <div class="item justify-center"> Center</div>
+        <div class="item justify-stretch">Stretch</div>
+        </div>
+    </div>
+
+    <h2> align-self</h2>
+    <div class="container container-2 column">
+        <div class="item align-start"> Start </div>
+        <div class="item align-end"> End</div>
+        <div class="item align-center"> Center</div>
+        <div class="item align-stretch">Stretch</div>
+        </div>
+    </div>
+
+    <h2> justify-self + align-self</h2>
+    <div class="container container-2 column">
+        <div class="item justify-start align-start"> Start </div>
+        <div class="item justify-end align-end"> End</div>
+        <div class="item justify-center align-center"> Center</div>
+        <div class="item justify-stretch align-stretch">Stretch</div>
+        </div>
+    </div>
+
+    <style>
+        body{
+            box-sizing: border-box;
+        }
+    
+        .container{
+            display: grid;
+            background-color: rgb(247, 221, 221);
+            border-style: solid;
+            border-width: 0.5px;
+            padding: 10px;
+            gap: 10px;
+            margin: 40px;
+        }
+
+        .container-1{
+            width: 400px;
+            height: 50px;
+        }
+
+        .container-2{
+            width: 400px;
+            height: 50px;
+        }
+
+        .item{
+            border: 0.5px solid;
+            width: 50px;
+            height: 20px;
+            background-color: lightsalmon;
+        }
+
+        .column{
+            grid-template-columns: repeat(4, minmax(50px, 100px));
+        }
+
+        .justify-start{
+            justify-self: start;
+        }
+
+        .justify-end{
+            justify-self: end;
+        }
+
+        .justify-center{
+            justify-self: center;
+        }
+
+        .item.justify-stretch{
+            justify-self: stretch;
+            width: auto;
+        }
+
+        .align-start{
+            align-self: start;
+        }
+
+        .align-end{
+            align-self: end;
+        }
+
+        .align-center{
+            align-self: center;
+        }
+
+        .item.align-stretch{
+            align-self: stretch;
+            height: auto;
+        }
+</style>
+</body>
+</html>
