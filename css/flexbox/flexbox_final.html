@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Part 4: Real-World</title>
+    <link rel="stylesheet" href="flexbox_final.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Flexbox Real-World Applications</h1>
+        <nav class="navbar">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">About</a>
+            <a href="#" class="nav-item">Services</a>
+            <a href="#" class="nav-item">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="flex-example">
+            <h2>Example 4.1: Perfect Centering</h2>
+            <div class="center-container">
+                <div class="center-item">I'm perfectly centered!</div>
+            </div>
+            <p class="code-snippet">
+                <code>.center-container { display: flex; justify-content: center; align-items: center; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example">
+            <h2>Example 4.2: Responsive Card Layout</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Card Title 1</h3>
+                    <p>Short description for card 1. Flexbox helps align cards even with varying content.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title 2</h3>
+                    <p>A much longer description for card 2. This text wraps and extends, demonstrating how Flexbox keeps items aligned at the top regardless of height differences in other cards in the row, thanks to default `align-items: stretch` or `flex-start`.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title 3</h3>
+                    <p>Another short description.</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title 4</h3>
+                    <p>The final card.</p>
+                </div>
+            </div>
+            <p class="code-snippet">
+                <code>.cards-container { display: flex; flex-wrap: wrap; justify-content: space-around; }</code><br>
+                <code>.card { flex: 1 1 250px; /* grow, shrink, base-width */ margin: 15px; }</code>
+            </p>
+        </section>
+
+        <section class="flex-example sticky-footer-section">
+            <h2>Example 4.3: Sticky Footer (Conceptual)</h2>
+            <div class="page-wrapper">
+                <div class="content-area">
+                    <p>This content area is designed to push the footer down.</p>
+                    <p>Try making your browser window shorter. If the content is short, the footer will "stick" to the bottom of the viewport.</p>
+                    <p>If the content is long, the footer will appear below the content.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, temporibus. Laborum aliquam, omnis perferendis architecto dolore iste obcaecati quam voluptatibus, expedita, magnam assumenda minus quae nulla. Minus, quis tempora!</p>
+                    <p>Ea iure rem ipsum officiis dolore fuga aspernatur unde, sapiente reprehenderit facilis, modi velit illum. Eaque, tempora? Quaerat nulla, ut dolores ad rerum cumque, perspiciatis totam, error eum officia iste?</p>
+                    <p>Autem placeat animi recusandae, ipsum, illum quo, consequuntur doloremque facere omnis modi perferendis! Natus sequi, iste consectetur voluptatibus dolorem nesciunt laudantium non aliquid facilis, dolore assumenda eius, harum dignissimos!</p>
+                    <p>Quae voluptas nemo, dolor at dolorem nam ducimus sapiente doloribus blanditiis, facere, perferendis voluptatibus distinctio pariatur reiciendis! Dolores, perspiciatis veritatis! Tempora commodi voluptatibus illum! Autem necessitatibus eveniet vero ipsam quos.</p>
+                    <p>Dolorum, velit? Recusandae, minus, ab aperiam et earum unde cupiditate provident, officia vero nemo facilis! Voluptatum natus, animi dolorum, unde quis asperiores tempora ad voluptatibus dolorem cumque, assumenda ut perspiciatis.</p>
+                </div>
+                <footer class="sticky-footer">
+                    <p>&copy; 2025 Flexbox Master. This is a sticky footer.</p>
+                </footer>
+            </div>
+            <p class="code-snippet">
+                <code>body { display: flex; flex-direction: column; min-height: 100vh; }</code><br>
+                <code>.content-area { flex-grow: 1; }</code>
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>
