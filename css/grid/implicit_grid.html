@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid - Part 4: Implicit & Patterns</title>
+    <link rel="stylesheet" href="implicit_grid.css">
+</head>
+<body>
+
+    <header>
+        <h1>CSS Grid: Implicit Grid & Real-World Patterns</h1>
+    </header>
+
+    <main>
+        <section class="grid-example">
+            <h2>Example 4.1: Implicit Rows (`grid-auto-flow: row` - default)</h2>
+            <div class="grid-container container-implicit-rows">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+                <div class="grid-item">Item 6</div>
+                <div class="grid-item">Item 7</div>
+                <div class="grid-item">Item 8</div>
+            </div>
+            <p class="code-snippet">
+                <code>.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 100px; /* Explicit size for implicit rows */ }</code><br>
+                <em>(More items than explicit columns, new rows are created)</em>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 4.2: Implicit Columns (`grid-auto-flow: column`)</h2>
+            <div class="grid-container container-implicit-columns">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+                <div class="grid-item">Item 6</div>
+            </div>
+            <p class="code-snippet">
+                <code>.grid-container { display: grid; grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; grid-auto-columns: 100px; }</code><br>
+                <em>(More items than explicit rows, new columns are created)</em>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 4.3: Responsive Image Gallery (`auto-fit` & `minmax`)</h2>
+            <div class="grid-container container-gallery">
+                <img src="https://picsum.photos/id/237/200/150" alt="Dog" class="gallery-item">
+                <img src="https://picsum.photos/id/238/200/150" alt="River" class="gallery-item">
+                <img src="https://picsum.photos/id/239/200/150" alt="City" class="gallery-item">
+                <img src="https://picsum.photos/id/240/200/150" alt="Abstract" class="gallery-item">
+                <img src="https://picsum.photos/id/241/200/150" alt="Mountain" class="gallery-item">
+                <img src="https://picsum.photos/id/242/200/150" alt="Forest" class="gallery-item">
+                <img src="https://picsum.photos/id/243/200/150" alt="Ocean" class="gallery-item">
+                <img src="https://picsum.photos/id/244/200/150" alt="Road" class="gallery-item">
+            </div>
+            <p class="code-snippet">
+                <code>.container-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }</code><br>
+                <em>(Columns adjust dynamically based on viewport width)</em>
+            </p>
+        </section>
+
+        <section class="grid-example">
+            <h2>Example 4.4: Full Page Layout (Holy Grail) with `grid-template-areas`</h2>
+            <div class="grid-container container-holy-grail">
+                <header class="grid-item holy-grail-header">Page Header</header>
+                <nav class="grid-item holy-grail-nav">Navigation</nav>
+                <main class="grid-item holy-grail-main">
+                    <h3>Main Content Area</h3>
+                    <p>This is the primary content section. It will take up the most space.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, accusamus.</p>
+                </main>
+                <aside class="grid-item holy-grail-aside">Sidebar</aside>
+                <footer class="grid-item holy-grail-footer">Page Footer</footer>
+            </div>
+            <p class="code-snippet">
+                <code>.container-holy-grail {</code><br>
+                <code>  display: grid;</code><br>
+                <code>  grid-template-columns: 150px 1fr 200px;</code><br>
+                <code>  grid-template-rows: auto 1fr auto;</code><br>
+                <code>  grid-template-areas:</code><br>
+                <code>    "header header header"</code><br>
+                <code>    "nav main aside"</code><br>
+                <code>    "footer footer footer";</code><br>
+                <code>}</code><br>
+                <code>/* ... then assign grid-area to each item */</code>
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>
