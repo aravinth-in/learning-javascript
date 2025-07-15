@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h1> Implicit Grid</h1>
+
+    <h2> grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); </h2>
+    <div class="container container-gallery">
+        <img src="https://picsum.photos/id/237/200/150">
+        <img src="https://picsum.photos/id/238/200/150">
+        <img src="https://picsum.photos/id/239/200/150">
+        <img src="https://picsum.photos/id/240/200/150">
+        <img src="https://picsum.photos/id/241/200/150">
+        <img src="https://picsum.photos/id/242/200/150">
+        <img src="https://picsum.photos/id/243/200/150">
+        <img src="https://picsum.photos/id/244/200/150">
+    </div>
+
+    <h2> grid-template-columns: 150px 1fr 200px; </h2>
+    <h2> grid-template-rows: auto 1fr auto; </h2>
+    <h2> grid-template-areas: </h2>
+    <div class="container template">
+        <header class="item head">Header</header>
+        <nav class="item nav">Navigation</nav>
+        <main class="item main">
+            <h3>Main Content Area</h3>
+            <p>This is the primary content section. It will take up the most space.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, accusamus.</p>
+        </main>
+        <aside class="item side">Sidebar</aside>
+        <footer class="item foot">Page Footer</footer>
+    </div>
+
+    <style>
+        body{
+            box-sizing: border-box;
+        }
+    
+        .container{
+            display: grid;
+            background-color: rgb(247, 221, 221);
+            border-style: solid;
+            border-width: 0.5px;
+            padding: 10px;
+            gap: 10px;
+            margin: 40px;
+        }
+
+        .container-gallery{
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Automatically create columns */
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .template{
+            grid-template-columns: 150px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+            "head head head"
+            "nav main side"
+            "foot foot foot";
+            min-height: 500px;
+        }
+
+        .item{
+            border: 0.5px solid;
+            width: auto;
+            height: auto;
+            background-color: lightsalmon;
+            padding: 10px;
+        }
+
+        .head{
+            grid-area: head;
+        }
+
+        .nav{
+            grid-area: nav;
+        }
+
+        .main{
+            grid-area: main;
+        }
+
+        .side{
+            grid-area: side;
+        }
+
+        .foot{
+            grid-area: foot;
+        }
+</style>
+</body>
+</html>
