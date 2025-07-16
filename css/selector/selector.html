@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Playground</title>
+    <link rel="stylesheet" href="selector.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <h1>Welcome to the <span class="site-name">Selectors Playground</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#section-1" class="nav-link">Section One</a></li>
+                <li><a href="#section-2" class="nav-link current">Section Two</a></li>
+                <li><a href="https://example.com/external" target="_blank" rel="noopener noreferrer">External Link</a></li>
+                <li><a href="https://example.com/download.pdf" download>Download PDF</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="section-1" class="content-section featured">
+            <h2>Section 1: Basic Elements</h2>
+            <p>This is a <strong class="important-text">simple paragraph</strong>. It contains some text.</p>
+            <p>Another paragraph. This one has an <a href="#target-id">internal link</a> to itself.</p>
+            <div>
+                <span>This is a span inside a div.</span>
+                <p>This paragraph is a descendant of the div.</p>
+            </div>
+            <p>A paragraph immediately following a div.</p>
+        </section>
+
+        <section id="section-2" class="content-section">
+            <h2>Section 2: Lists & Forms</h2>
+            <h3>My Favorite Fruits</h3>
+            <ul>
+                <li>Apple</li>
+                <li class="favorite">Banana</li>
+                <li>Cherry
+                    <ul>
+                        <li>Dark Cherry</li>
+                        <li>Sour Cherry <span class="new-tag">New!</span></li>
+                    </ul>
+                </li>
+                <li>Date</li>
+                <li class="favorite">Elderberry</li>
+                <li>Fig</li>
+            </ul>
+
+            <h3>User Preferences</h3>
+            <form>
+                <fieldset>
+                    <legend>Contact Info</legend>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                    <br>
+                    <label for="user-email">Email:</label>
+                    <input type="email" id="user-email" placeholder="email@example.com">
+                    <br>
+                    <label>
+                        Newsletter:
+                        <input type="checkbox" name="newsletter" value="yes">
+                    </label>
+                    <label>
+                        Receive SMS:
+                        <input type="checkbox" name="sms" value="yes" checked disabled>
+                    </label>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" minlength="8">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferred Time</legend>
+                    <label>
+                        <input type="radio" name="time" value="morning" checked> Morning
+                    </label>
+                    <label>
+                        <input type="radio" name="time" value="afternoon"> Afternoon
+                    </label>
+                </fieldset>
+
+                <input type="submit" value="Submit Preferences" class="btn submit-btn">
+                <button type="button" class="btn cancel-btn">Cancel</button>
+            </form>
+        </section>
+
+        <section id="section-3" class="content-section">
+            <h2>Section 3: Advanced Selector Demos</h2>
+            <div class="card-container">
+                <div class="item-card">
+                    <h3>Card 1</h3>
+                    <p>Some item details.</p>
+                </div>
+                <div class="item-card popular">
+                    <h3>Card 2 (Popular)</h3>
+                    <p>More item details.</p>
+                </div>
+                <div class="item-card">
+                    <h3>Card 3</h3>
+                    <p>Even more details.</p>
+                    <span class="info-icon">i</span>
+                </div>
+                <div class="item-card">
+                    <h3>Card 4</h3>
+                    <p>Last item.</p>
+                </div>
+                <div class="empty-div"></div>
+            </div>
+
+            <p class="data-example" data-category="web">This paragraph has a data attribute.</p>
+            <a href="/internal-page.html">Go to internal page</a>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <p>&copy; 2025 Selectors Playground</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+/* --- Universal Selector --- */
+/* A common reset to normalize styling across browsers and make box-sizing consistent */
+* {
+    box-sizing: border-box; /* Crucial for consistent sizing (content + padding + border = total width/height) */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Type (Element) Selectors --- */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+h2 {
+    color: #2980b9;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* --- Class Selectors --- */
+.site-name {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.content-section {
+    background-color: white;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+}
+
+.featured { /* Styles applied to elements with BOTH content-section AND featured classes */
+    border: 2px dashed #f39c12;
+}
+
+.important-text {
+    color: #c0392b;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.new-tag {
+    background-color: #27ae60;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+}
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+}
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* --- ID Selectors --- */
+#main-header {
+    background-color: #34495e;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#site-footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+#section-2 {
+    background-color: #ecf0f1; /* Lighter background for this section */
+    border: 1px solid #bdc3c7;
+}
+
+/* --- Attribute Selectors --- */
+a[target="_blank"] { /* Links opening in a new tab */
+    color: #e67e22;
+    text-decoration: none;
+}
+a[target="_blank"]::after { /* Add an icon after external links */
+    content: " ↗";
+    font-size: 0.8em;
+}
+
+a[href$=".pdf"] { /* Links ending with .pdf */
+    color: #9b59b6;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    width: 200px;
+}
+
+input[required] { /* Styles required input fields */
+    border-left: 3px solid #e74c3c;
+}
+
+input[disabled] { /* Styles disabled input fields */
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Styles elements that have a 'data-category' attribute starting with 'web' */
+[data-category^="web"] {
+    font-style: italic;
+    color: #16a085;
+}
+
+/* --- Combinators --- */
+
+/* Descendant Combinator (space) */
+#main-header nav ul li a { /* Targets <a> inside <li> inside <ul> inside <nav> inside #main-header */
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block; /* Make the whole area clickable */
+}
+
+/* Child Combinator (>) */
+nav > ul { /* Selects the <ul> that is a DIRECT child of <nav> */
+    display: flex;
+    justify-content: center;
+    list-style: none; /* Remove default list bullets */
+    padding: 10px 0;
+}
+ul > li > ul { /* Selects sub-<ul> that is a DIRECT child of <li> */
+    list-style-type: circle;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 15px;
+    font-size: 0.9em;
+}
+
+/* Adjacent Sibling Combinator (+) */
+h2 + p { /* Selects the FIRST <p> that immediately follows an <h2> */
+    font-weight: bold;
+    color: #2980b9;
+}
+
+/* General Sibling Combinator (~) */
+div + p { /* Selects all <p> elements that are preceded by a <div> (at the same level) */
+    font-style: italic;
+    border-left: 3px solid #bdc3c7;
+    padding-left: 10px;
+}
+
+/* --- Pseudo-classes --- */
+
+/* Link States */
+a:hover {
+    text-decoration: underline;
+    color: #3498db;
+}
+a:active {
+    color: #2980b9;
+}
+a.nav-link:visited { /* Styles visited links with specific class */
+    color: #a29bfe; /* A slightly different shade for visited nav links */
+}
+
+/* Focus State (Crucial for accessibility!) */
+input:focus, button:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+/* More accessible focus ring for keyboard users */
+input:focus-visible, button:focus-visible, a:focus-visible {
+    outline: 3px dashed #f1c40f; /* Brighter, more noticeable for keyboard */
+    outline-offset: 3px;
+}
+
+/* Structural Pseudo-classes */
+li:first-child { /* First <li> in any ul */
+    text-decoration: underline;
+}
+li:last-child { /* Last <li> in any ul */
+    font-style: italic;
+}
+li:nth-child(2n) { /* Every even <li> (2nd, 4th, 6th...) */
+    background-color: #f8f9fa;
+}
+li.favorite { /* Specific styles for list items with class "favorite" */
+    color: #e74c3c;
+    font-weight: bold;
+}
+ul > li:only-child { /* Selects a list item if it's the *only* child of its parent ul */
+    color: purple;
+}
+/* The li for "Sour Cherry New!" is the second li of its parent ul, but only li of its type (because the other is a sub-ul) */
+li:only-of-type {
+    text-decoration: line-through; /* Apply to "Dark Cherry" and "Sour Cherry" */
+}
+
+
+/* Form-related Pseudo-classes */
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+input:invalid {
+    border-color: #e74c3c;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+input:valid {
+    border-color: #28a745;
+}
+
+input:placeholder-shown { /* Styles input when placeholder is visible */
+    font-style: italic;
+    color: #95a5a6;
+}
+
+/* --- Pseudo-elements --- */
+#main-header nav ul li a::before { /* Add a small bullet point before each nav item */
+    content: "• ";
+    color: #f1c40f;
+}
+
+#section-1 p::first-letter {
+    font-size: 2em;
+    color: #3498db;
+    float: left; /* Makes the letter float to the left */
+    line-height: 1;
+    margin-right: 5px;
+    font-family: serif;
+}
+
+#section-2 h3::after { /* Adds an underline effect after h3 */
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #3498db;
+    margin-top: 5px;
+}
+
+::selection { /* Styles text when selected by the user */
+    background-color: #ffeaa7; /* Light yellow background */
+    color: #2c3e50; /* Dark text */
+}
+
+/* --- Advanced Selectors --- */
+
+/* :has() - Selects a .content-section that contains an <h2> */
+/* (This example is a bit redundant as all content-sections have h2, but demonstrates syntax) */
+.content-section:has(h2) {
+    padding-bottom: 30px;
+}
+
+/* Selects an item-card that contains an element with class "info-icon" */
+.item-card:has(.info-icon) {
+    border: 2px solid #8e44ad;
+    background-color: #f8f0fc;
+}
+
+/* Styles a label whose contained checkbox input is checked */
+label:has(input[type="checkbox"]:checked) {
+    font-weight: bold;
+    color: #2ecc71; /* Green text for checked label */
+}
+
+/* :not() */
+/* Styles all p elements EXCEPT those with class important-text */
+p:not(.important-text) {
+    text-indent: 10px;
+}
+
+/* Styles all li elements EXCEPT those with class favorite */
+li:not(.favorite) {
+    list-style-type: square;
+}
+
+/* :is() - groups selectors with common styles */
+:is(h1, h2, h3) { /* Styles h1, h2, or h3 */
+    margin-top: 25px;
+}
+
+/* :where() - similar to :is(), but always has zero specificity (useful for overriding defaults) */
+:where(ul, ol) { /* Styles ul or ol */
+    padding-left: 25px;
+}
+
+
+/* Scroll-related styling for demonstration (add enough content to make page scrollable) */
+body {
+    scroll-behavior: smooth; /* Smooth scrolling for internal links */
+}
+
+#main-header {
+    /* To demonstrate scroll-padding with fixed header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+:target { /* When you click an internal link like #section-1, this styles the target */
+    background-color: #fff9e6; /* Light yellow highlight */
+    border: 2px solid #f1c40f;
+    padding: 10px;
+    border-radius: 5px;
+    scroll-margin-top: 80px; /* Offset for fixed header when scrolling to target */
+}
+
+.card-container {
+    height: 400px; /* Make container scrollable for snap demo */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.item-card {
+    height: 300px;
+    background-color: #ecf0f1;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Snap items to the start of the scroll container */
+}
+
+/* :empty pseudo-class */
+.empty-div:empty {
+    width: 100px;
+    height: 30px;
+    border: 1px dashed red;
+    background-color: #fdd;
+    margin: 15px auto;
+    text-align: center;
+    line-height: 30px;
+}
+.empty-div:empty::before {
+    content: "Empty Div";
+    color: red;
+    font-size: 0.8em;
+}
+
+/* Current nav link styling */
+a.nav-link.current {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
