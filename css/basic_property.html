@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basic Properties Showcase</title>
+    <link rel="stylesheet" href="basic_property.css">
+</head>
+<body>
+
+    <header>
+        <h1>CSS Properties in Action!</h1>
+        <p class="intro-text">Explore how basic CSS properties can transform your HTML elements.</p>
+    </header>
+
+    <main>
+        <section class="section-container text-section">
+            <h2>Text Styling</h2>
+            <div class="text-box">
+                <p class="paragraph-1">This is a standard paragraph. We'll adjust its font-size and line-height.</p>
+                <p class="paragraph-2">
+                    <span class="highlight">This span is highlighted</span> within this paragraph.
+                    It has custom <span class="bold-uppercase">font-weight</span> and
+                    <span class="text-transform-example">text-transform</span>.
+                </p>
+                <a href="#" class="decorated-link">A link with removed underline</a>
+                <p class="letter-spacing-example">Spread out text.</p>
+                <p class="no-wrap-text">This text will attempt to stay on a single line, causing overflow if too long, and will show ellipsis... This is a very very very very long piece of text to demonstrate text overflow and white-space: nowrap.</p>
+                <p class="break-all-text">Thisisareallylongwordwithoutspacesthatshouldbreakanywhereifneeded.</p>
+            </div>
+        </section>
+
+        <section class="section-container background-border-section">
+            <h2>Backgrounds & Borders</h2>
+            <div class="box basic-bg">Basic background color</div>
+            <div class="box image-bg">Background image, no-repeat</div>
+            <div class="box pattern-bg">Repeating pattern background</div>
+            <div class="box cover-bg">Cover background image</div>
+
+            <div class="box solid-border">Solid border</div>
+            <div class="box dashed-border">Dashed border with radius</div>
+            <div class="box mixed-border">Mixed border styles</div>
+            <div class="box fancy-border-radius">Complex border radius</div>
+        </section>
+
+        <section class="section-container dimension-display-section">
+            <h2>Dimensions & Display</h2>
+            <div class="dimension-box fixed-size">Fixed Size (200x100px)</div>
+            <div class="dimension-box responsive-width">Responsive Width (50%)</div>
+            <div class="dimension-box min-max-size">Min/Max Size (min-width: 150px, max-width: 300px, min-height: 80px)</div>
+
+            <h3>Display Examples</h3>
+            <span class="display-inline">Inline Span 1</span>
+            <span class="display-inline">Inline Span 2</span>
+            <div class="display-block">Block Div 1</div>
+            <div class="display-block">Block Div 2</div>
+            <button class="display-inline-block">Button 1 (Inline-Block)</button>
+            <button class="display-inline-block">Button 2 (Inline-Block)</button>
+        </section>
+
+        <section class="section-container visibility-opacity-section">
+            <h2>Visibility & Opacity</h2>
+            <div class="box visible-box">I am visible.</div>
+            <div class="box hidden-box">I am hidden (but take up space).</div>
+            <div class="box visible-box">I am visible again.</div>
+            <div class="box opacity-box">I am semi-transparent.</div>
+            <div class="box opacity-hover-box">Hover over me to change opacity.</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Experiment and learn! &copy; 2025</p>
+    </footer>
+
+</body>
+</html>

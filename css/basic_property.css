@@ -1,0 +1,304 @@
+/* --- Universal Box-Sizing Reset (Best Practice) --- */
+* {
+    box-sizing: border-box; /* Includes padding and border in width/height calculations */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef;
+    color: #343a40;
+    line-height: 1.6;
+    padding-bottom: 50px; /* Space for footer */
+}
+
+header {
+    background-color: #212529;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 3rem; /* Relative to root font size */
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2em; /* Relative to parent's font size */
+    color: #007bff;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #007bff;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.section-container {
+    background-color: white;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+}
+
+/* --- Helper Class for Boxes (for visual clarity) --- */
+.box, .dimension-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    min-height: 60px; /* Ensure boxes have some height */
+    display: flex; /* Using flexbox for vertical centering */
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Text Properties Section --- */
+.text-box {
+    border: 1px dashed #adb5bd;
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+.paragraph-1 {
+    font-size: 18px; /* Absolute pixel size */
+    line-height: 1.8; /* Multiplier for line height */
+    color: #28a745; /* Green text */
+    text-align: left;
+    font-weight: 400; /* Normal weight */
+}
+
+.paragraph-2 {
+    font-family: 'Georgia', serif; /* Specific font with fallback */
+    font-size: 1.2em; /* Relative to parent (.text-box) font size */
+    line-height: 1.5;
+    text-align: justify; /* Justify text */
+    color: #6f42c1; /* Purple text */
+}
+
+.highlight {
+    color: #fd7e14; /* Orange */
+    background-color: #fff3cd; /* Light yellow background */
+    font-weight: bold; /* Bolder text */
+}
+
+.bold-uppercase {
+    font-weight: 900; /* Extra bold */
+    text-transform: uppercase; /* All caps */
+}
+
+.text-transform-example {
+    text-transform: capitalize; /* Capitalize first letter of each word */
+    font-style: italic;
+}
+
+.decorated-link {
+    text-decoration: none; /* Remove default underline */
+    color: #007bff; /* Blue link */
+    font-weight: 600; /* Semi-bold */
+}
+.decorated-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.letter-spacing-example {
+    letter-spacing: 0.1em; /* Spread letters out */
+    color: #dc3545; /* Red */
+    font-weight: 500;
+}
+
+.no-wrap-text {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide content that overflows */
+    text-overflow: ellipsis; /* Show "..." for overflowed text */
+    border: 1px solid #17a2b8;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.break-all-text {
+    word-break: break-all; /* Force breaks within words if necessary */
+    border: 1px solid #ffc107;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+
+/* --- Background & Border Section --- */
+
+.basic-bg {
+    background-color: #6610f2; /* Purple background */
+    color: white;
+}
+
+.image-bg {
+    /* To make this work, you'd need an image named 'bg-pattern.png'
+       in a sibling 'images' folder or adjust the path. */
+    background-image: url(https://picsum.photos/200/300); /* Placeholder image */
+    background-repeat: no-repeat; /* Image appears once */
+    background-position: center center; /* Image centered */
+    background-size: 50px; /* Size the image */
+    color: transparent; /* Hide text to see background better */
+    height: 100px; /* Give it enough height to see image */
+    text-shadow: 0 0 5px black; /* Add shadow to make hidden text visible for debugging */
+}
+
+.pattern-bg {
+    background-image: url(https://picsum.photos/200/300); /* Small dot pattern */
+    background-repeat: repeat; /* Default, but explicit */
+    background-size: auto; /* Default, let image size dictate */
+    color: #000;
+}
+
+.cover-bg {
+    background-image: url(https://picsum.photos/200/300); /* Larger image */
+    background-size: cover; /* Image will cover the box, cropping if needed */
+    background-position: center center;
+    color: white;
+    height: 120px;
+}
+
+.solid-border {
+    border: 3px solid #ffc107; /* Shorthand: width style color */
+}
+
+.dashed-border {
+    border: 2px dashed #6f42c1;
+    border-radius: 15px; /* Rounded corners */
+}
+
+.mixed-border {
+    border-top: 5px solid #28a745;
+    border-right: 3px dotted #dc3545;
+    border-bottom: 5px double #17a2b8;
+    border-left: 3px dashed #6c757d;
+}
+
+.fancy-border-radius {
+    /* Top-left, Top-right, Bottom-right, Bottom-left */
+    border-radius: 20px 0 20px 0;
+    border: 2px solid #fd7e14;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* --- Dimensions & Display Section --- */
+
+.dimension-box {
+    background-color: #e0f7fa;
+    border: 1px solid #00bcd4;
+    color: #00838f;
+    margin-bottom: 10px;
+}
+
+.fixed-size {
+    width: 200px;
+    height: 100px;
+    background-color: #ffe0b2;
+    border-color: #ff9800;
+}
+
+.responsive-width {
+    width: 50%; /* Takes 50% of its parent's width */
+    max-width: 400px; /* But never wider than 400px */
+    background-color: #c8e6c9;
+    border-color: #4caf50;
+    height: 80px; /* Fixed height for demo */
+}
+
+.min-max-size {
+    /* This box will always be at least 150px wide, at most 300px wide. */
+    /* And always at least 80px tall. */
+    width: 250px; /* Initial width, constrained by min/max */
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 80px;
+    background-color: #e1bee7;
+    border-color: #9c27b0;
+}
+
+/* Display Examples */
+.display-inline {
+    background-color: #a7d9b7;
+    border: 1px solid #4CAF50;
+    padding: 5px 10px; /* Horizontal padding applies */
+    margin: 5px; /* Horizontal margin applies */
+    /* width/height will be ignored */
+    display: inline; /* Default for span, but explicit */
+    color: #333;
+}
+
+.display-block {
+    background-color: #d1ecf1;
+    border: 1px solid #17a2b8;
+    padding: 10px;
+    margin: 10px 0; /* All margins apply, takes full width */
+    width: 80%; /* Takes 80% of parent width */
+    display: block; /* Default for div, but explicit */
+    color: #333;
+}
+
+.display-inline-block {
+    background-color: #ffdbdb;
+    border: 1px solid #dc3545;
+    padding: 10px 20px;
+    margin: 10px; /* All margins apply */
+    width: 150px; /* Width and height apply! */
+    height: 50px;
+    display: inline-block;
+    color: #333;
+    cursor: pointer;
+}
+
+
+/* --- Visibility & Opacity Section --- */
+
+.visible-box {
+    background-color: #20c997;
+    color: white;
+    margin-bottom: 15px;
+    visibility: visible; /* Default, but explicit */
+}
+
+.hidden-box {
+    background-color: #ffc107;
+    color: black;
+    margin-bottom: 15px;
+    visibility: hidden; /* Element is invisible but still occupies space */
+}
+
+.opacity-box {
+    background-color: #6f42c1;
+    color: white;
+    margin-bottom: 15px;
+    opacity: 0.5; /* 50% transparent */
+}
+
+.opacity-hover-box {
+    background-color: #17a2b8;
+    color: white;
+    margin-bottom: 15px;
+    opacity: 1; /* Fully opaque by default */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+.opacity-hover-box:hover {
+    opacity: 0.2; /* Becomes 20% opaque on hover */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
