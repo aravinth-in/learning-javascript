@@ -1,0 +1,431 @@
+/* --- 0. Global Resets & Base Styles (Mobile-First) --- */
+/* Universal Box-Sizing Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    font-size: 100%; /* Base for REM units, usually 16px */
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+/* Fluid Images & Media */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below images */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+.container {
+    width: 90%; /* Fluid width for content */
+    max-width: 1200px; /* Maximum width on large screens */
+    margin: 0 auto; /* Center the container */
+    padding: 1rem 0; /* Vertical padding */
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+}
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.secondary-btn {
+    background-color: #6c757d;
+    color: white;
+}
+.secondary-btn:hover {
+    background-color: #5a6268;
+}
+
+.tertiary-btn {
+    background-color: #e9ecef;
+    color: #333;
+    border: 1px solid #ced4da;
+}
+.tertiary-btn:hover {
+    background-color: #dee2e6;
+}
+
+section {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+/* --- 1. Header (Flexbox for internal alignment) --- */
+.site-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column; /* Mobile: Stack logo and nav vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 1rem; /* Space between logo and nav */
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    flex-direction: row; /* Mobile: Stack nav items vertically */
+    gap: 0.5rem;
+    width: 100%; /* Occupy full width for stacking */
+}
+
+.main-nav a {
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block; /* Make whole area clickable */
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+.main-nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* --- 2. Hero Section --- */
+.hero-section {
+    background-color: #3498db;
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    background-image: url('https://picsum.photos/id/112/1000/1000'); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before { /* Overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: white;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* --- 3. About Section (Flexbox for image/text layout) --- */
+.about-section {
+    background-color: white;
+    padding: 4rem 0;
+}
+
+.about-flex {
+    display: flex;
+    flex-direction: column; /* Mobile: Stack image above text */
+    align-items: center; /* Center items */
+    gap: 2rem;
+    text-align: left; /* Text alignment within its own container */
+}
+
+.profile-img {
+    border-radius: 10%; /* Circular image */
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* Ensures image covers area without distortion */
+    border: 3px solid #007bff;
+}
+
+.about-text {
+    flex-grow: 1; /* Allow text to grow */
+}
+
+/* --- 4. Projects Section (CSS Grid for dynamic columns) --- */
+.projects-section {
+    background-color: #e6f3ff;
+    padding: 4rem 0;
+}
+
+.project-grid {
+    display: grid;
+    /* Mobile: Single column */
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Space between cards */
+    padding: 0 1rem; /* Padding for the grid itself */
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* Ensures image corners are rounded */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.project-img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistent image size */
+    object-fit: cover;
+}
+
+.project-card h3 {
+    padding: 1rem 1.5rem 0.5rem;
+    font-size: 1.3rem;
+}
+
+.project-card p {
+    padding: 0 1.5rem 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.project-card .btn {
+    margin: 0 1.5rem 1.5rem;
+    width: calc(100% - 3rem); /* Button takes full width minus padding */
+}
+
+/* --- 5. Contact Section --- */
+.contact-section {
+    background-color: #2c3e50;
+    color: white;
+    padding: 4rem 0;
+}
+
+.contact-section h2 {
+    color: white;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mobile: Single column form */
+    gap: 1rem;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #3d5a73;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bbb;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Make message field span full width on all screens */
+}
+
+.submit-form-btn {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+
+/* --- 6. Footer --- */
+.site-footer {
+    background-color: #212529;
+    color: #aaa;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+.site-footer .container {
+    display: flex;
+    flex-direction: column; /* Mobile: Stack footer content */
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #aaa;
+    margin: 0 0.5rem;
+}
+.social-links a:hover {
+    color: white;
+}
+
+
+/* --- 7. Media Queries (Desktop-First adjustments for larger screens) --- */
+
+/* Small Tablets / Landscape Phones */
+@media (min-width: 576px) {
+    .main-nav .nav-list {
+        flex-direction: row; /* Nav items side-by-side */
+        width: auto;
+    }
+    .main-nav a {
+        background-color: transparent; /* Remove background on nav links */
+    }
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+    .about-flex {
+        text-align: center; /* Center image and text block */
+    }
+}
+
+/* Medium Tablets / Small Laptops */
+@media (min-width: 768px) {
+    .site-header .header-content {
+        flex-direction: row; /* Logo and nav side-by-side */
+        justify-content: space-between;
+    }
+
+    .about-flex {
+        flex-direction: row; /* Desktop: Image and text side-by-side */
+        text-align: left; /* Align text left */
+        align-items: flex-start; /* Align image/text to top */
+    }
+    .profile-img {
+        margin-right: 2rem; /* Space between image and text */
+        flex-shrink: 0; /* Prevent image from shrinking */
+    }
+
+    .project-grid {
+        /* On medium screens, 2 columns. minmax ensures columns are at least 300px wide,
+           or share space equally if wider */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr 1fr; /* Two columns for name/email */
+    }
+    .form-group.full-width {
+        grid-column: 1 / -1; /* Ensure message still spans full width */
+    }
+    .submit-form-btn {
+        grid-column: 1 / -1; /* Button spans full width */
+        width: auto; /* Let grid handle width */
+    }
+
+    .site-footer .container {
+        flex-direction: row; /* Footer content side-by-side */
+        justify-content: space-between;
+    }
+}
+
+/* Large Laptops / Desktops */
+@media (min-width: 992px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.8rem; }
+
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .project-grid {
+        /* On large screens, 3 columns */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1200px) {
+    .container {
+        padding: 2rem 0; /* More padding on larger containers */
+    }
+    section {
+        padding: 6rem 0;
+    }
+}
